@@ -1,0 +1,611 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>VJEŽBA 3</title>
+
+<style>
+
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Explorer 10 and 11 */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+								  
+      ::selection { background: none; }
+       ::-moz-selection { background: none; }
+    
+}
+
+
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word' body oncontextmenu="return false;" >
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><u><span lang=HR style='font-size:14.0pt'>VJ3-
+Upravljanje svjetlinom LED diode potenciometrom</span></u></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><u><span lang=HR style='font-size:14.0pt'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>3.1 </span></b><span lang=HR style='font-size:
+14.0pt'>Promjena svjetline LED diode bez vanjskog upravljanja</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Digitalnim<b> </b>pinovima<b> </b>3, 5, 6, 9, 10 i 11 
+možemo upravljati <b>svjetlinom LED diode, brzinom vrtnje DC motora</b> i nekim
+drugim stvarima koristeći funkciju <i><span style='color:#ED7D31'>analoglWrite()</span></i><span
+style='color:#ED7D31'>.</span></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Pošto su ti pinovi digitalni to znači da mogu biti na
+naponu ili 0V ili 5V . To je digitalni signal.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>(NIKAKO VRIJEDNOSTI IZMEĐU 0V i 5V ) Naziv takvog
+signala je „Pulsno širinska modulacija“ koja se naširoko koristi u uređajima
+poput mobitela, laptopa, tableta, TV-a, kućnog računala, pametnim žaruljama,
+robotima itd. (<b>Skraćeno engl. PWM od „Pulse width modulation“</b>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Karakteristike</span><span lang=HR style='font-size:
+14.0pt'> PWM-a na Arduinu.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>PWM ima STALNU FREKVENCIJU.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>Mijenja se samo popunjenost perioda  naponom
+od 5V u cjelobrojnim koracima od 0 do 255. ( 8 bitni signal jer 2<sup>8 </sup>=
+256 – 1). </span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>PRIMJERI:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Ako je popunjenost perioda PWM signala naponom od 5V u
+periodu </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'> 0% - srednji napon je U<sub>SR </sub>= 0 V</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>25% - srednji napon je U<sub>SR </sub>= 1.25 V</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>50% - srednji napon je U<sub>SR </sub>= 2.5 V</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>75% - srednji napon je U<sub>SR </sub>= 3.75 V</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>100% - srednji napon je U<sub>SR </sub>= 5 V</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>itd.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'>Pulsno širinska
+modulacija – PWM</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'><img width=451
+height=476 id="Slika 2" src="vj3_files/image001.png"></span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'>Električna
+shema </span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'><img
+width=445 height=499 id="Slika 3" src="vj3_files/image002.png"></span></i></p>
+
+<p class=MsoNormal><i><span lang=HR style='font-size:14.0pt;line-height:107%'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span lang=HR
+style='font-size:14.0pt;line-height:107%'>Montažna shema</span></i><span
+lang=HR style='font-size:14.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=HR
+style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'><img
+width=518 height=568 id="Slika 4" src="vj3_files/image003.png"></span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Upišite sljedeći program. </span></p>
+
+<p class=MsoNormal><b><i><span lang=HR style='font-size:14.0pt;line-height:
+107%;font-family:"Courier New";color:#00979C'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>int</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> svjetlina </span></i></b><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:#434F54'>=</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> 0; &nbsp;&nbsp;&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>int</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> fade </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>=</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> 5; &nbsp;&nbsp;&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#5E6D03'>setup</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() { </span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>pinMode</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(9</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>,</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#00979C'>OUTPUT</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#5E6D03'>loop</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() { &nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>analogWrite</span></i></b><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:black'>(9</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>,</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> svjetlina); &nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;svjetlina
+</span></i></b><b><i><span lang=HR style='font-size:14.0pt;line-height:107%;
+font-family:"Courier New";color:#434F54'>=</span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>
+svjetlina </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>+</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> fade;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#5E6D03'>if</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> (svjetlina </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>&lt;=</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> 0 </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>||</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> svjetlina </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>&gt;=</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> 255) {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;&nbsp;&nbsp;fade
+</span></i></b><b><i><span lang=HR style='font-size:14.0pt;line-height:107%;
+font-family:"Courier New";color:#434F54'>=</span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>
+</span></i></b><b><i><span lang=HR style='font-size:14.0pt;line-height:107%;
+font-family:"Courier New";color:#434F54'>-</span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>fade;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(30);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>LED dioda bi trebala mijenjati svjetlinu.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>3.2 </span></b><span lang=HR style='font-size:
+14.0pt'>Upravljanje svjetlinom LED diode potenciometrom</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Samostalno mijenjanje svjetline LED diode ima smisao
+ako se radi npr. o signalizaciji na mobitelu da smo primili poruku, e-mail itd.
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>U praktičnoj uporabi nema smisla ako mi ne možemo
+upravljati svjetlinom, npr. rasvjeta u sobi.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Današnje pametne žarulje najčešće koriste daljinske
+upravljače. Mi ćemo koristiti ono što već znamo, potenciometar spojen na
+analogni pin i ADC.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><a name="_Hlk48123672"><i><span lang=HR
+style='font-size:14.0pt'>Električna shema</span></i></a></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'><img
+width=520 height=498 id="Slika 5" src="vj3_files/image004.png"></span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=HR> </span><i><span lang=HR style='font-size:
+14.0pt'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><img width=568 height=616 src="vj3_files/image005.jpg"
+alt="Slika na kojoj se prikazuje tekst, elektroničko inženjerstvo, elektronika, komponenta strujnog kruga&#10;&#10;Opis je automatski generiran"><br
+clear=ALL>
+</p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Ovdje se pojavljuje problem nekompatibilnosti ADC-a i
+PWM-a. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>ADC je 10 bitni a PWM 8 bitni. Zato ćemo koristiti
+funkciju <b><i><span style='color:#ED7D31'>map()</span></i></b><span
+style='color:#ED7D31'> </span>koja jedan raspon brojeva matematički pretvara u
+drugi tj. 10 bitni u 8 bitni tj. raspon brojeva od  0-1023 u raspon od 0-255 .</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>(Funkcija <i>map()</i> podržava i druge raspone
+brojeva ovisno o potrebi programera.)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><a
+name="_Hlk48124318"><span lang=HR style='font-size:14.0pt'>Upišite sljedeći
+program. </span></a></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#5E6D03'>setup</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>() { </span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#D35400'>pinMode</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>(3</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#434F54'>,</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#00979C'>OUTPUT</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#5E6D03'>loop</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>() {
+&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#00979C'>int</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>
+_10bitno </span></i></b><b><i><span lang=HR style='font-size:14.0pt;font-family:
+"Courier New";color:#434F54'>=</span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#D35400'>analogRead</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> (A0);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#00979C'>int</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> _8bitno
+</span></i></b><b><i><span lang=HR style='font-size:14.0pt;font-family:"Courier New";
+color:#434F54'>=</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+font-family:"Courier New";color:black'> </span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;font-family:"Courier New";color:#D35400'>map</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>(_10bitno
+</span></i></b><b><i><span lang=HR style='font-size:14.0pt;font-family:"Courier New";
+color:#434F54'>,</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+font-family:"Courier New";color:black'>0</span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;font-family:"Courier New";color:#434F54'>,</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>1023</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#434F54'>,</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>0</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#434F54'>,</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>255);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#D35400'>analogWrite</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>(3</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#434F54'>,</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>
+_8bitno); &nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#D35400'>delay</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>(30);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Ugađanjem potenciometra mijenjamo svjetlinu LED diode.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;color:#ED7D31'>analogWrite() </span></i></b><span
+lang=HR style='font-size:14.0pt'>generira PWM -  pulsno širinsku modulaciju</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Sintaksa: analogWrite(pin, vrijednost)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Argumenti: pin je broj pina, vrijednost su cijeli brojevi
+od 0 do 255 (2<sup>8</sup>=256-1)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Razvojna pločica: Arduino Uno</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Pinovi: 3, 5, 6, 9, 10, 11</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Frekvencija: 490 Hz (pinovi 5 i 6: 980 Hz)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;color:#ED7D31'>map() </span></i></b><span
+lang=HR style='font-size:14.0pt'>preslikava niz brojeva iz jednog raspona u
+drugi (linearno)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Sintaksa: map(varijabla, od najmanjeg, od najvećeg, u
+najmanji , u najveći)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Primjer: Imamo niz vrijednosti od 0 do 100. Želimo
+pretvoriti taj niz brojeva u niz od 25 do 75.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Tada pišemo:<b><i>   <span style='color:#ED7D31'>map(varijabla,
+0, 100, 25, 75)</span></i></b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Sada je vrijednost 0 postala 25 a vrijednost 100 je
+postala 75 i ostalo sve između je linearno preslikano.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Primjer:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>VARIJABLA = map(VARIJABLA, od najmanjeg, od najvećeg,
+u najmanji , u najveći)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>Funkcija vraća vrijednost !!!</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Naredba grananja <b><i><span style='color:#ED7D31'>if</span></i></b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;color:#ED7D31'>if </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt'>  -</span></i></b><b><span lang=HR
+style='font-size:14.0pt'> </span></b><span lang=HR style='font-size:14.0pt'>jednostruka
+naredba grananja</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;color:#ED7D31'>if </span></i></b><i><span
+lang=HR style='font-size:14.0pt'>(uvjetni izraz)</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>{</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt'> // blok naredbi </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'> }</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Operatori usporedbe:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;color:#ED7D31'>!=</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt'> </span></i></b><span lang=HR
+style='font-size:14.0pt'>(nije jednako),<b><i>     <span style='color:#ED7D31'>&lt;</span>
+</i></b>(manje od),<b><i>     </i><span style='color:#ED7D31'>&lt;=</span><i> </i></b>(manje
+od ili jednako),<b><i>     <span style='color:#ED7D31'>==</span> </i></b>(jednako),<b><i>    
+<span style='color:#ED7D31'>&gt;</span> </i></b>(veće od),<b><i>         <span
+style='color:#ED7D31'>&gt;= </span></i></b>(veće od ili jednako)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Aritmetički operatori:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;color:#ED7D31'>%</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt'> </span></i></b><span lang=HR
+style='font-size:14.0pt'>(ostatak-modulo)<b><i>     <span style='color:#ED7D31'>*
+</span></i></b>(množenje)<b><i>     <span style='color:#ED7D31'>+</span> </i></b>(zbrajanje)<b><i>   
+<span style='color:#ED7D31'> - </span></i></b>(oduzimanje)     <b><i><span
+style='color:#ED7D31'>/</span> </i></b><i>(dijeljenje)</i></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Logički
+operatori:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
+color:#ED7D31'>!  </span></b><b><span lang=HR style='font-size:14.0pt;
+line-height:107%'>NOT ( NE )</span></b></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'><img
+width=108 height=100 id="Slika 7" src="vj3_files/image006.png"></span></b></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
+color:#F4B083'>&amp;&amp;</span></b><b><span lang=HR style='font-size:14.0pt;
+line-height:107%'>  AND ( I )</span></b></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'><img
+width=213 height=162 id="Slika 8" src="vj3_files/image007.png"></span></b></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
+color:#F4B083'>||</span></b><b><span lang=HR style='font-size:14.0pt;
+line-height:107%'>  OR ( ILI )</span></b></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'><img
+width=214 height=160 id="Slika 9" src="vj3_files/image008.png"></span></b></p>
+
+<p class="footer-copy">&copy; Sva prava pridržana.</p>
+
+</div>
+
+</body>
+
+</html>
