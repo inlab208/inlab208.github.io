@@ -1,0 +1,118 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+ 
+ 
+  <title>R.V. ARDUINO</title>
+
+  <style>
+body {
+  background-color: black;
+  color: white;
+  
+   background-color: black;
+      color: white;
+	   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Explorer 10 and 11 */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+								  
+      ::selection { background: none; }
+       ::-moz-selection { background: none; }
+}
+</style>
+  
+  <style>
+  
+
+    #overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;        
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+         
+    }
+
+    #popup {
+       position: absolute;;
+        /*top: 50%;*/
+		top: 100px;
+        left: 50%;
+		/*left: 100px;*/
+		
+        background: white;	
+		color: black;
+        width: 500px;*/
+       height: 250px;
+		border-radius: 8px;
+        margin-left: -250px; /*Half the value of width to center div*/
+        /*margin-top: -250px; /*Half the value of height to center div*/
+		 
+	  }
+	   
+     
+    }
+
+    #popupclose {
+        float: left;
+        padding: 10px;
+        cursor: pointer;
+		}
+		
+  </style>
+</head>
+ <body  body oncontextmenu="return false;"  >
+ 
+<div id="maincontent">
+    <h1>NASTAVNI MATERIJALI IZ R.V. ARDUINO</h1>
+  <p>POPIS VJEŽBI</p>
+
+<p> 1. <a href="vj1.html">VJ 1</a></p>
+<p> 2. <a href="vj2.html">VJ 2</a></p>
+<p>3. <a href="vj3.html">VJ 3</a></p>
+<p>4. <a href="https://www.google.com">VJ 4</a></p>
+<p>5. <a href="VJ5.html">VJ 5</a></p>
+<p>6. <a href="VJ6.html">VJ 6</a></p>
+<p>7. <a href="VJ7.html">VJ 7</a></p>
+<p>8. <a href="https://www.google.com">VJ 8</a></p>
+<p>9. <a href="https://www.google.com">VJ 9</a></p>
+<p>10. <a href="https://www.google.com">VJ 10</a></p>
+<p>11. <a href="https://www.google.com">VJ 11</a></p>
+<p>12. <a href="https://www.google.com">VJ 12</a></p>
+
+<p class="footer-copy">&copy; Sva prava pridržana.</p>
+
+
+
+<div id="overlay"></div>
+<div id="popup">
+    <div class="popupcontrols">
+        <span id="popupclose">Zatvori X</span>
+    </div>
+    <div class="popupcontent">
+        <h1>Podsjetnik</h1>
+		<h2>Za pozitivnu ocjenu potrebno je odraditi vježbu  i napisati dokumentaciju !</h2>
+		<h2>Nadoknadu vježbe moguće je odraditi u  dogovorenom terminu u 208 ili   samostalno na računalu kod kuće.  </h2>
+		
+    </div>
+
+<script type="text/javascript">
+    // Initialize Variables
+    var closePopup = document.getElementById("popupclose");
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById("popup");
+ 
+    // Close Popup Event
+    closePopup.onclick = function() {
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+    };
+</script>
+</body>
+</html>
