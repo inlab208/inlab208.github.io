@@ -1,38 +1,43 @@
-1.
-Ovo je mehanizam za onemogućavanje kopiranja koji se izvodi samo sa CSS-om. 
-Za <body> element.
-
-<style>
-
-body {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Explorer 10 and 11 */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-								  
-      ::selection { background: none; }
-       ::-moz-selection { background: none; }
-    
-}
-
-</style>
-
---------------------------------------------
+1. Na vrh
+<html>
+<body style="background-color:#F9EEE0;">
+----------------------------------------
 2.
-Ovo će blokirati svaki pristup kontekstnom izborniku (ne samo s desne tipke miša, već i s tipkovnice)
-Bez poruke.Dodati u <body..........>
-
-<body oncontextmenu="return false;">
-
---------------------------------------------
-3.
 Dodati naziv taba u <head>
 
 <title>R.V. ARDUINO</title>
-----------------------------------------------
+------------------------------------------
+3.
+<style>
+
+p {
+            max-width: 960;
+            color: black;
+            background-color: white;
+			/*text-align: center;*/
+			position: relative;
+			margin-inline: auto;
+
+			}
+  
+.container{
+background-color: white;
+margin: 0 auto;
+max-width: 960;
+overflow: auto;
+}
+
+------------------------------------
+3. U <body>
+body oncontextmenu="return false;
+------------------------------------
+4.
+Dodati container da omota cujeli tekst u bodyju (ispod <body>
+
+<div class="container">
+
+</div>    IDE NA KRAJU
+--------------------------------------------
 4.
 Dodati copy right na dnu unutar <body> ili <div>
 
