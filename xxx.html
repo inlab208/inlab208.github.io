@@ -1,136 +1,348 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="hr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="Generator" content="Microsoft Word 15 (filtered)">
-<title>VJEŽBA 1</title>
-<style>
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-	background-color: PowderBlue;
-}
-p {
-    max-width: 960px;
-    color: black;
-    background-color: white;
-    position: relative;
-    margin: 0px 8px 0px 8px;
-}
-.container {
-    background-color: white;
-    margin: 0 auto;
-    max-width: 960px;
-    overflow: auto;
-    padding-bottom: 50px; /* Space for the footer */
-}
-header {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    background-color: DeepSkyBlue;
-    text-align: center;
-    padding: 10px 0;
-}
-footer {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    background-color: DeepSkyBlue;
-    text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-.container {
-    flex: 1;
-}
-::selection { background: none; }
-::-moz-selection { background: none; }
-</style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav#navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav#navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+
+        nav#navbar a:hover {
+            background-color: #ddd;
+        }
+
+        .main-body {
+            display: flex;
+            flex-direction: column;
+            margin-top: 60px; /* Dodajte marginu za prostor ispod navigacije */
+        }
+
+        main#main-doc {
+            padding: 20px;
+        }
+
+        header {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        code {
+            background-color: #CCC;
+            display: block;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav#navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav#navbar a {
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-<body lang="EN-US" link="#0563C1" vlink="#954F72" style="word-wrap:break-word" oncontextmenu="return false;">
-<header>
-	<p1>POČETNA</p1>
-    <p1>VJEŽBA 1</p1>
-	<p1>VJEŽBA 2</p1>
-	<p1>VJEŽBA 3</p1>
-	<p1>VJEŽBA 4</p1>
-	<p1>VJEŽBA 5</p1>
-	<p1>VJEŽBA 6</p1>
-	<p1>VJEŽBA 7</p1>
-	<p1>VJEŽBA 8</p1>
-	<p1>VJEŽBA 9</p1>
-	<p1>VJEŽBA 10</p1>
-	<p1>VJEŽBA 11</p1>
-	<p1>VJEŽBA 12</p1>
-</header>
-<div class="container">
 
+<body>
+    <nav id="navbar">
+        <a href="#Intro" class="nav-link">Što je C++</a>
+        <a href="#Object" class="nav-link">Objekti i Klase</a>
+        <a href="#Inheritance" class="nav-link">Nasljeđivanje</a>
+        <a href="#Polymorphism" class="nav-link">Polimorfizam</a>
+        <a href="#Abstraction" class="nav-link">Apstrakcija</a>
+        <a href="#Encapsulation" class="nav-link">Enkapsulacija</a>
+		<a href="#blabla" class="nav-link">blabla</a>
+    </nav>
 
-<p class=MsoNormal align=center style='text-align:center'><b><u><span lang=HR
-style='font-size:14.0pt;line-height:107%'>VJ1-Bljeskanje LED diode</span></u></b></p>
+    <div class="main-body">
+        <main id="main-doc">
+            <section class="main-section" id="Intro">
+                <header>Što je C++?</header>
+                <p>C++ je programski jezik opće namjene.</p>
+                <ul>
+                    <li>Objekti i Klase</li>
+                    <li>Nasljeđivanje</li>
+                    <li>Polimorfizam</li>
+                    <li>Apstrakcija</li>
+                    <li>Enkapsulacija</li>
+					<li>blabla</li>
+                </ul>
+            </section>
 
-<p class=MsoNoSpacing align=center style='text-align:center'><b><u><span
-lang=HR style='font-size:14.0pt'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+            <section class="main-section" id="Object">
+                <header>Objekti i Klase</header>
+                <p>
+				Lorem Ipsum je jednostavno probni tekst koji se koristi u tiskarskoj i slovoslagarskoj industriji. Lorem Ipsum postoji kao industrijski standard još od 16-og stoljeća, kada je nepoznati tiskar uzeo tiskarsku galiju slova i posložio ih da bi napravio knjigu s uzorkom tiska. Taj je tekst ne samo preživio pet stoljeća, već se i vinuo u svijet elektronskog slovoslagarstva, ostajući u suštini nepromijenjen. Postao je popularan tijekom 1960-ih s pojavom Letraset listova s odlomcima Lorem Ipsum-a, a u skorije vrijeme sa software-om za stolno izdavaštvo kao što je Aldus PageMaker koji također sadrži varijante Lorem Ipsum-a.
+				</p>
+            </section>
 
-<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt'>Arduino Uno</span></i></b><span
-lang=HR style='font-size:14.0pt'> je jedna od najpoznatijih razvojnih platformi
-za edukaciju u svijetu. Koriste ga hobisti, elektroničari svih generacija  kao
-i učitelji  za edukaciju od osnovne škole do fakulteta. Programski jezik
-Arduina je modificirani C/C++ jezik s mnoštvom već ugrađenih funkcija tako da
-nam uvelike olakšava programiranje. </span><span lang=HR><a
-href="https://www.arduino.cc/reference/en/"><b><i><span style='font-size:14.0pt'>https://www.arduino.cc/reference/en</span></i></b></a></span></p>
+            <section class="main-section" id="Inheritance">
+                <header>Nasljeđivanje</header>
+                <p>
+				Suprotno raširenom mišljenju, Lorem Ipsum nije samo slučajni tekst, već ima korijene u klasičnoj latinskoj književnosti iz godine 45. pr.n.e., što znači da mu je preko 2000 godina. Richard McClintock, profesor latinskog jezika na Hampden-Sydney koledžu u Virginiji, potražio je jednu od čudnijijh latinskih riječi, consectetur, iz Lorem Ipsum teksta, i prolazeći kroz citate te riječi u klasičnoj književnosti, otkrio nedvojbeni izvor. Lorem Ipsum dolazi iz odlomaka 1.10.32 i 1.10.33 Ciceronovog djela pod naslovom "de Finibus Bonorum et Malorum" (Krajnosti dobra i zla), napisanog 45. godine pr.n.e. Ovo je djelo rasprava o teoriji etike, a bilo je vrlo popularno u Renesansi. Prvi redak Lorem Ipsum-a, "Lorem ipsum dolor sit amet..", dolazi iz odlomka 1.10.32.</p>
+            </section>
 
-<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Vježbe ćemo
-izvoditi u Tinkercadu.  </span><span lang=HR><a
-href="https://www.tinkercad.com/"><b><i><span style='font-size:14.0pt'>https://www.tinkercad.com/</span></i></b></a></span></p>
+            <section class="main-section" id="Polymorphism">
+                <header>Polimorfizam</header>
+                <p>
+				Za one koje zanima, standardni dio Lorem Ipsum-a koji se koristi od 16.-og stoljeća može se naći u nastavku na ovoj stranici. Dijelovi 1.10.32 i 1.10.33 iz djela "de Finibus Bonorum et Malorum" su doslovno preneseni iz originala, popraćeni engleskim prijevodom H. Rackhama iz 1914.
+				</p>
+            </section>
 
-<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>&nbsp;</span></p>
+            <section class="main-section" id="Abstraction">
+                <header>Apstrakcija</header>
+                <p>
+				Odavno je uspostavljena činjenica da čitača ometa razumljivi tekst dok gleda raspored elemenata na stranici. Smisao korištenja Lorem Ipsum-a jest u tome što umjesto 'sadržaj ovjde, sadržaj ovjde' imamo normalni raspored slova i riječi, pa čitač ima dojam da gleda tekst na razumljivom jeziku. Mnogi programi za stolno izdavaštvo i uređivanje web stranica danas koriste Lorem Ipsum kao zadani model teksta, i ako potražite 'lorem ipsum' na Internetu, kao rezultat dobit ćete mnoge stranice u izradi. Razne verzije razvile su se tijekom svih tih godina, ponekad slučajno, ponekad namjerno (s dodatkom humora i slično).
+				</p>
+            </section>
 
-<p class=MsoNormal align=center style='text-align:center'><span lang=EN-GB
-style='font-size:14.0pt;line-height:107%'><img border=0 width=613 height=634
-id="Slika 0" src="vj1_files/image001.jpg"
-alt="Slika na kojoj se prikazuje tekst, snimka zaslona&#10;&#10;Opis je automatski generiran"></span></p>
+            <section class="main-section" id="Encapsulation">
+                <header>Enkapsulacija</header>
+                <p>
+				Postoje mnoge varijacije odlomaka iz Lorem Ipsum-a, ali većina je pretrpjela kojekakve promjene s dodanim humorom, ili nasumičnim riječima koje nikako tu ne spadaju. Ako trebate koristiti Lorem Ipsum, morate biti sigurni da tekst ne sadrži skrivene nepodobne riječi ili fraze. Lorem Ipsum generatori na Internetu većinom ponavljaju zadane odlomke po potrebi, što ovaj naš čini prvim pravim generatorom na Internetu. Mi koristimo riječnik od 200 latinskih riječi, u kombinaciji s nekoliko modela rečeničnih struktura, da bi generirali Lorem Ipsum koji izgleda razumno. Stoga je Lorem Ipsum s ove stranice uvijek bez ponavljanja, bez dodanog humora ili nekaraketerističnih riječi.
+				</p>
+            </section>
+			
+			 <section class="main-section" id="blabla">
+                <header>blabla</header>
+                <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><u><span lang=HR style='font-size:14.0pt'>VJ2-Izrada
+jednostavnog Voltmetra</span></u></b></p>
 
-<b><u><span lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
-clear=all style='page-break-before:always'>
-</span></u></b>
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><u><span lang=HR><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
 
-<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'>1.1</span></b><span
-lang=HR style='font-size:14.0pt;line-height:107%'> Minimalni program koji
-možemo pokrenuti na Arduinu.(engl. <b><i><span style='color:black;border:none windowtext 1.0pt;
-padding:0in;background:white'>BareMinimum</span></i></b>) </span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><a
-name="_Hlk48080090"></a><a name="_Hlk48078453"><span lang=HR style='font-size:
-14.0pt'>Upišite sljedeći program. </span></a></p>
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>2.1</span></b><span lang=HR style='font-size:
+14.0pt'> Analogni ulazi</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'> </span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Arduino ima mogućnost  čitanja vrijednosti analognog
+napon na analognom pinu. Pročitani napon <b>od 0V do 5V</b> konvertira uz 
+pomoću funkcije </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;color:#ED7D31'>analogRead()</span></i></b><span
+lang=HR style='font-size:14.0pt;line-height:107%;color:#ED7D31'> </span><span
+lang=HR style='font-size:14.0pt;line-height:107%'>u cjelobrojne vrijednosti od
+0 do 1023.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>To su 1024 broja.  ( NULA JE BROJ ).</span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Konvertirane
+vrijednosti  ćemo ispisivati u SERIJSKOM MONITORU.</span></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'>Potenciometar
+koristimo kao naponski djelitelj od 0V do 5V.</span></b></p>
+
+<p class=MsoNormal><b><span lang=HR>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span lang=HR
+style='font-size:14.0pt;line-height:107%'>Električna shema</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span lang=HR><img
+width=432 height=523 id="Slika 2" src="vj2_files/image001.png"></span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=HR style='font-size:14.0pt'><img width=529
+height=564 id="Slika 1" src="vj2_files/image002.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Upišite sljedeći program. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
 style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
 lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
 color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
-line-height:107%;font-family:"Courier New";color:#ED7D31'>setup</span></i></b><b><i><span
+line-height:107%;font-family:"Courier New";color:#5E6D03'>setup</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>&nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>Serial</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>.</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>begin</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(9600);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#5E6D03'>loop</span></i></b><b><i><span
 lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
 color:black'>() {</span></i></b></p>
 
 <p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
 style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
 lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#434F54'>// put your setup code here, to run once:</span></i></b></p>
+color:#00979C'>int</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> potNapon </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>=</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>analogRead</span></i></b><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:black'>(A0); &nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>Serial</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>.</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>println</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(potNapon);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(30);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Ugađanjem potenciometra brojevi se u SERIJSKOM
+MONITORU mijenjaju. U kojem rasponu ? </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>UPIŠITE VRIJEDNOSTI.      min_________ max_________</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>2.2</span></b><span lang=HR style='font-size:
+14.0pt'> Izrada jednostavnog Voltmetra</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>ADC</span></b><span lang=HR style='font-size:
+14.0pt'> je analogno digitalni konverter te se koristi na zvučnoj kartici kao
+ulaz za mikrofon dok je <b>DAC</b> digitalno analogni konverter te se koristi
+kao izlaz za zvučnike. ADC i DAC se koriste i u ostalim uređajima kao što su
+mobiteli, tableti, televizori, glazbene linije, perilice, alarmi, bojleri,
+termostati itd.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>Arduino UNO ima 10 bitni ADC jer je 2<sup>10 </sup>=
+1024 - 1. (DAC nema.)</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Da bi smo u SERIJSKOM MONITORU prikazali  točnu
+vrijednost napona na analognom pinu A0 koristit ćemo matematički izračun. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Već znamo da se raspon napona 0-5V konvertira u
+cjelobrojne vrijednosti raspona 0-1023. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Podijelimo max vrijednost napona na 1023 dijela. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>5V/1023 = 0.004887V</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>Evidentno je da se konvertirani brojevi
+mijenjaju po koracima od 0.004887V  tj. 4,887 mV .</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><span lang=HR style='font-size:14.0pt'>Vizualni prikaz
+rada ADC-a.</span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><span lang=HR><img width=601 height=552 id="Slika 7"
+src="vj2_files/image003.jpg"
+alt="Slika na kojoj se prikazuje tekst, dijagram, crta, paralelno&#10;&#10;Opis je automatski generiran"></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Ubacimo računicu u prijašnji program.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Upišite sljedeći program. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><a name="_Hlk48120342"><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#00979C'>void</span></i></b></a><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#ED7D31'>setup</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>() {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>Serial</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>.</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>begin</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(9600);</span></i></b></p>
 
 <p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
 style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
@@ -146,233 +358,359 @@ color:black'>() {</span></i></b></p>
 <p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
 style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
 lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#434F54'>// put your main code here, to run repeatedly:</span></i></b></p>
+color:#00979C'>float</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> potNapon </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>=</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> 0.004887 </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>*</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'> </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>analogRead</span></i></b><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:black'>(A0); </span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>Serial</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>.</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>print</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#005C5F'>&quot;VRIJEDNOST NAPONA JE : &nbsp;&nbsp;&quot;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>Serial</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>.</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>print</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(potNapon);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>Serial</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#434F54'>.</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>println</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#005C5F'>&quot; &nbsp;&nbsp;V&quot;</span></i></b><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>);</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(30);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i></b></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
 lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>}</span></i></b></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
-lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>Ovaj program ne radi ništa. </span></p>
+style='font-size:14.0pt'>Ugađanjem potenciometra napon se mijenja. U kojem
+rasponu ? </span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>&nbsp;</span></p>
+style='font-size:14.0pt'>UPIŠITE VRIJEDNOSTI. min______ max_____</span></p>
+
+<p class=MsoNormal><b><span lang=HR>&nbsp;</span></b></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
-lang=HR style='font-size:14.0pt'>1.2</span></b><span lang=HR style='font-size:
-14.0pt'> Bljeskanje LED diode.</span></p>
+lang=HR style='font-size:14.0pt'>2.3 Varijable</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:#4472C4'>potNapon</span></b><b><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'> je
+varijabla !!!!</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>Varijable </span></b><span lang=HR
+style='font-size:14.0pt'>koristimo u programiranju za pohranu neke vrijednosti
+koja se može mijenjati tijekom trajanja programa.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Za pohranu vrijednosti varijable koristimo memoriju, a
+varijabli dodjeljujemo proizvoljno simboličko  ime koje nam omogućuje pristup
+(poziv) varijabli u programu.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Primjer upotrebe varijable je program koji prikazuje
+rezultat na sportskoj utakmici. Vrijednost koju varijabla sadrži (varijabla
+naziva <i>rezultat</i>) prikazivat će se na zaslonu dok se igra utakmica. Kako
+se rezultat povećava, vrijednost varijable se mijenja, a prikaz na zaslonu će
+se ažurirati i prikazati novu vrijednost.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Varijable nazivamo simboličkim imenom. Ako je spojena
+crvena LED dioda jednostavni naziv bio<i> bi <span style='color:#4472C4'>crvena</span></i>.
+Ako upisujemo vrijednost temperature sa senzora naziv bi bio <i><span
+style='color:#4472C4'>temp</span></i> itd.</span></p>
+
+<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Prilikom
+određivanja simboličkog naziva varijabli poštujemo sljedeća pravila:</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.75in;text-indent:-.25in'><span
+lang=HR style='font-size:14.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=HR style='font-size:14.0pt'>Samo slova engleske abecede,
+brojevi i znak _  (podcrtavanje).</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.75in;text-indent:-.25in'><span
+lang=HR style='font-size:14.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=HR style='font-size:14.0pt'>U simboličkom imenu ne
+smije biti razmak.</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.75in;text-indent:-.25in'><span
+lang=HR style='font-size:14.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=HR style='font-size:14.0pt'>U simboličkom imenu ne
+smiju biti dijakritički znakovi (č,ć,ž,š,đ).</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.75in;text-indent:-.25in'><span
+lang=HR style='font-size:14.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=HR style='font-size:14.0pt'>U simboličkom imenu na
+prvom mjestu imena ne smije biti broj.</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.75in;text-indent:-.25in'><span
+class=MsoHyperlink><span lang=HR style='font-size:14.0pt;font-family:Symbol;
+text-decoration:none'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=HR style='font-size:14.0pt'>U simboličkom imenu
+ne smijemo koristiti ključne riječi  ili oznake operatora programskog jezika. </span></p>
+
+<p class=MsoNoSpacing style='margin-left:.75in'><span lang=HR style='font-size:
+14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Programski jezik C/C++ razlikuje velika i mala slova.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>Osnovni tipovi podataka</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Osim simboličkog naziva svakoj varijabli <b>moramo
+odrediti tip podatka.</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Osnovni tipovi podataka su cijeli i realni brojevi,
+logički tipovi true-false (istina-laž) i znakovi.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR><a
+href="https://www.arduino.cc/reference/en/#variables"><span style='font-size:
+14.0pt;color:blue'>https://www.arduino.cc/reference/en/#variables</span></a></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>U većini programskih jezika prvi program koji napišemo
-ispisuje na ekran &quot;Pozdrav svijete&quot;. Arduino Uno  nema ekran pa ćemo 
-kao prvi program napisati program za bljeskanje LED diode.</span></p>
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><u><span
+lang=HR style='font-size:14.0pt'>Cijeli brojevi</span></u></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>Arduino UNO ima ugrađenu LED diodu spojenu s pinom 13
-oznake <b>L</b> . Pronađite oznaku <b>L</b>.</span></p>
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>Oznaka
+je <b><i>int</i></b> (<i>engl. integer</i>) u opsegu brojeva od -32.768 do 
+32.767  </span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>primjer:  
+</span><b><i><span lang=HR style='font-size:14.0pt;color:#00B0F0'>int</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;color:black;background:#F7F9F9'> rezultat;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><u><span
+lang=HR style='font-size:14.0pt'>Realni brojevi</span></u></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>Oznaka
+je<span style='color:red'> </span><b><i>float </i></b>u opsegu brojeva od
+3,4x10<sup>-38</sup> do 3,4x10<sup>38  </sup></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'> primjer: 
+<b><i><span style='color:#00B0F0'>float</span> temperatura;</i></b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><u><span
+lang=HR style='font-size:14.0pt'>Logički tipovi</span></u></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>Oznaka
+je <b><i>bool<span style='color:red'> </span></i></b>, sadrži jednu od dvije
+vrijednosti, <b><i>true</i></b> ili <b><i>false</i></b> (istina ili laž)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>primjer:  
+</span><b><i><span lang=HR style='font-size:14.0pt;color:#00B0F0;background:
+#F7F9F9'>bool </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+color:black;background:#F7F9F9'>tipkalo;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><u><span
+lang=HR style='font-size:14.0pt'>Znakovi</span></u></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>Oznaka
+je <b><i>char<span style='color:red'> </span></i></b>, sadrži znak ili ASCII
+vrijednost znaka u opsegu brojeva od -128 do 127 </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt'>primjer:  
+</span><b><i><span lang=HR style='font-size:14.0pt;color:#00B0F0'>char</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;color:black;background:#F7F9F9'> mojeSlovo;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><u><span
+lang=HR style='font-size:14.0pt;color:black;background:#F7F9F9'>Tip podatka
+bez  vrijednosti</span></u></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-indent:35.4pt;line-height:
+normal'><b><i><span lang=HR style='font-size:14.0pt'>void </span></i></b><span
+lang=HR style='font-size:14.0pt'>je tip podatka koji ne sadrži vrijednost.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-indent:35.4pt;line-height:
+normal'><span lang=HR style='font-size:14.0pt'>Primjer: <b><i><span
+style='color:#4472C4'>void </span></i></b> <b><i><span style='color:#ED7D31'>setup()</span></i></b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-indent:35.4pt;line-height:
+normal'><b><i><span lang=HR style='font-size:14.0pt;color:#ED7D31'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;border:none windowtext 1.0pt;padding:0in'>Primjeri: ( <b>desna
+strana se pridružuje lijevoj !!!</b> )</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;border:none windowtext 1.0pt;padding:0in'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-indent:35.4pt'><span lang=HR
+style='font-size:14.0pt;line-height:107%;border:none windowtext 1.0pt;
+padding:0in'>int a = 0;       int b;              int a = 4;                   </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-indent:35.4pt'><span lang=HR
+style='font-size:14.0pt;line-height:107%;border:none windowtext 1.0pt;
+padding:0in'>a = 3;             b = 9;             int c = 18:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:141.6pt;text-indent:35.4pt'><span lang=HR style='font-size:14.0pt;
+line-height:107%;border:none windowtext 1.0pt;padding:0in'>c = a;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;border:none windowtext 1.0pt;padding:0in'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;border:none windowtext 1.0pt;padding:0in'>//var a je ?   </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;border:none windowtext 1.0pt;padding:0in'>//var b je ?          
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;border:none windowtext 1.0pt;padding:0in'>// koja je
+vrijednost  var c ?</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='border:none windowtext 1.0pt;
+padding:0in'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='border:none windowtext 1.0pt;
+padding:0in'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='border:none windowtext 1.0pt;
+padding:0in'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-text-indent:35.4pt;line-height:normal'><a name="_Hlk48574908"><i><span lang=HR
-style='font-size:14.0pt'>Električna </span></i></a><i><span lang=HR
-style='font-size:14.0pt'>shema   </span></i></p>
+line-height:normal'><span lang=HR style='font-size:14.0pt;border:none windowtext 1.0pt;
+padding:0in'>Objasnite NAZIVE VARIJABLI NA donjoj slici slici.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='border:none windowtext 1.0pt;padding:0in'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-line-height:normal'><span lang=HR style='font-size:14.0pt'><img border=0
-width=434 height=449 id="Slika 3" src="vj1_files/image002.jpg"
-alt="Slika na kojoj se prikazuje tekst, dijagram&#10;&#10;Opis je automatski generiran"></span></p>
+line-height:normal'><i><span lang=HR><img border=0 width=497 height=368
+id="Slika 3" src="vj2_files/image004.png"></span></i></p>
 
-<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
 
-<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-line-height:normal'><i><span lang=HR style='font-size:14.0pt'>Montažna shema</span></i></p>
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR>&nbsp;</span></p>
 
-<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-line-height:normal'><span lang=HR style='font-size:14.0pt'><img border=0
-width=617 height=453 id="Picture 39" src="vj1_files/image003.png"
-alt="Slika na kojoj se prikazuje tekst, elektroničko inženjerstvo, elektronika, elektronička komponenta&#10;&#10;Opis je automatski generiran"></span></p>
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;color:#E36C0A'>Serial.begin()</span></i></b><span
+lang=HR style='font-size:14.0pt;line-height:107%'> ,konfigurira serijsku vezu
+između Arduina i računala</span></p>
 
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Sintaksa:Serial.begin (brzina)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Argumenti: brzina: brzina serijske veze u jedinici
+baudrate - bita u sekundi (Internet ?)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;color:#E36C0A'>Serial.print(</span></i></b><b><span
+lang=HR style='font-size:14.0pt;line-height:107%;color:#E36C0A'>)</span></b><span
+lang=HR style='font-size:14.0pt;line-height:107%'>  ili <b><i><span
+style='color:#E36C0A'>Serial.println()</span></i></b>   ,ispisuje zadano u
+zagradi u Serijski monitor</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Sintaksa: Serial.print (zadano). </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Argumenti: zadano : mogu biti znakovi ili neke
+brojevne vrijednosti</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Napomena: dodatak<b><i><span style='color:#E36C0A'> ln</span></i></b>
+(engl. <i>line</i>) - ispiši u novi redak</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;color:#ED7D31'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;color:#ED7D31'>analogRead ()</span></i></b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;color:#ED7D31'>  </span></i><span
+lang=HR style='font-size:14.0pt;line-height:107%'>je funkcija koja „čita“ napon
+na ulaznom analognom pinu te ga pomoću ADC-a pretvara u cijele brojeve.</span></p>
+
+<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Sintaksa:
+analogRead( (pin). </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Argumenti: pin: broj analognog pina.  </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Napon od 0V do 5V  </span><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>è</span><span
+lang=HR style='font-size:14.0pt;line-height:107%'> u cijele brojeve od 0 do
+1023  To su 1024 broja. (0 je  broj !!!)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>10 bitni analogno digitalni konverter - ADC. ( 2<sup>10
+</sup>= 1024 -1 )</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Funkcija <i><span style='color:#ED7D31'>analogRead()</span></i><span
+style='color:#ED7D31'> </span>vrijedi  kao i konvertirani broj,  od 0 d0 1023. 
+Zbog toga možemo reći da funkcija vraća vrijednost.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Takve funkcije pridružujemo varijabli operatorom
+pridruživanja   <span style='color:#4472C4'>=<i> </i>    </span></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%'>Primjer:</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>Upišite sljedeći program. </span></p>
+style='font-size:14.0pt'>VARIJABLA = <i>analogRead (pin)</i></span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
-line-height:107%;font-family:"Courier New";color:#C45911'>setup</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:black'>() {</span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#D35400'>pinMode</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
-line-height:107%;font-family:"Courier New";color:black'>( </span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>13,
-OUTPUT<span style='color:black'>);</span></span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
-line-height:107%;font-family:"Courier New";color:#C45911'>loop</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:black'>() {</span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#D35400'>digitalWrite</span></i></b><b><i><span lang=HR style='font-size:
-14.0pt;line-height:107%;font-family:"Courier New";color:black'>( </span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>13,
-HIGH<span style='color:black'>); &nbsp;&nbsp;</span></span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
-line-height:107%;font-family:"Courier New";color:black'>(</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>1000<span
-style='color:black'>); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#D35400'>digitalWrite</span></i></b><b><i><span lang=HR style='font-size:
-14.0pt;line-height:107%;font-family:"Courier New";color:black'>( </span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>13,
-LOW<span style='color:black'>); &nbsp;&nbsp;&nbsp;</span></span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
-color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
-line-height:107%;font-family:"Courier New";color:black'>(</span></i></b><b><i><span
-lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>1000<span
-style='color:black'>);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>Objašnjenje koda.</span></p>
-
-<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
-color:black;background:white'>&nbsp;</span></b></p>
-
-<p class=MsoNormal style='background:white'><b><span lang=HR style='font-size:
-14.0pt;line-height:107%;color:black;background:white'>SVAKI Arduino program
-MORA sadržavati  funkciju&nbsp;<i>setup()</i>&nbsp;i&nbsp;<i> loop()</i></span></b></p>
-
-<p class=MsoNormal style='background:white'><b><i><span lang=HR
-style='font-size:14.0pt;line-height:107%;color:black;background:white'> </span></i></b><b><span
-lang=HR style='font-size:14.0pt;line-height:107%;color:black;background:white'>Svaku
-od tih funkcija moramo napisati SAMO JEDNOM u programu.</span></b></p>
-
-<p class=MsoNormal style='background:white'><b><span lang=HR style='font-size:
-14.0pt;line-height:107%;color:black;background:white'>Komentar za jedan redak
-započinje s dvije kose crte  // .</span></b></p>
-
-<p class=MsoNormal style='background:white'><b><span lang=HR style='font-size:
-14.0pt;line-height:107%;color:black;background:white'>Operator    </span></b><b><span
-lang=HR style='font-size:14.0pt;line-height:107%;color:#0070C0;background:white'>=</span></b><b><span
-lang=HR style='font-size:14.0pt;line-height:107%;color:black;background:white'>   
-nazivamo operatorom pridruživanja ili dodjeljivanja.( NIJE ZNAK  JEDNAKO!!! )</span></b></p>
-
-<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>&nbsp;</span></i></b></p>
-
-<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>setup()</span></i></b><b><span
-lang=HR style='font-size:14.0pt;color:#C45911'>  </span></b><span lang=HR
-style='font-size:14.0pt'>je funkcija koja se izvršava samo jednom. (moramo
-napisati jednom)</span></p>
-
-<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>loop()</span></i></b><b><span
-lang=HR style='font-size:14.0pt;color:#C45911'>&nbsp; </span></b><span lang=HR
-style='font-size:14.0pt'>je funkcija koja se izvršava beskonačno.&nbsp; (moramo
-napisati jednom)</span></p>
-
-<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Unutar funkcija
-nalaze se naredbe koje moraju započeti i završiti vitičastom zagradom  </span></p>
-
-<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt'>{ </span></i></b></p>
-
-<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt'>// blok naredbi<b>
-</b></span></i></p>
-
-<p class=MsoNormal><b><i><span lang=HR style='font-size:14.0pt;line-height:
-107%'> }</span></i></b></p>
-
-<p class=MsoNormal><b><i><span lang=HR style='font-size:14.0pt;line-height:
-107%'>&nbsp;</span></i></b></p>
-
-<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>delay
-()</span></i></b><span lang=HR style='font-size:14.0pt;color:#C45911'> </span><span
-lang=HR style='font-size:14.0pt'>,je funkcija koja privremeno zaustavlja
-izvršenje programa (pauza)</span></p>
-
-<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Sintaksa: delay
-(vrijednost). </span></p>
-
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Argumenti:
-vrijednost je cijeli broj u milisekundama.  </span></p>
-
-<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
-color:#E36C0A'>pinMode()</span></b><span lang=HR style='font-size:14.0pt;
-line-height:107%'> ,konfigurira digitalni pin kao ulazni ili izlazni</span></p>
-
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Sintaksa:
-pinMode (pin, mod)</span></p>
-
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Argumenti:
-pin: broj pina, mod: INPUT ili OUTPUT (tj. ulazni ili izlazni)</span></p>
-
-<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
-color:#E36C0A'>digitalWrite()</span></b><span lang=HR style='font-size:14.0pt;
-line-height:107%'>  ,upisuje ili HIGH  (binarno 1) na digitalnom pinu ili LOW
-(binarno 0) na digitalnom pinu. </span></p>
-
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Sintaksa:
-digitalWrite (pin, vrijednost). </span></p>
-
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Argumenti:
-pin je broj pina, vrijednost: HIGH ili LOW  (HIGH je binarna 1 ,a LOW binarna
-0)</span></p>
-
-<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Ako
-upišemo HIGH pin će biti na 5V , a ako upišemo LOW na 0V. Bez funkcije <i>pinMode()</i>
-neće ispravno raditi.</span></p>
-
-<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'>Možemo
-zaključiti da funkcijom <i><span style='color:#E36C0A'>digitalWrite()</span></i><span
-style='color:#E36C0A'> </span>zapravo upravljamo naponom na pinu (0V ili 5V).</span></b></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
-style='font-size:14.0pt'>&nbsp;</span></p>
-
-
-
-<footer>
-    <p style="background-color:DeepSkyBlue;" class="footer-copy">2024 &copy; Sva prava pridržana.</p>
-</footer>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
