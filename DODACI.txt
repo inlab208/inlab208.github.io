@@ -3,7 +3,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
 /*https://cloudconvert.com/docx-to-html*/
 /////////////////////////////////////////////////////////////////////
 
-1. NA SAMI VRH - BRIŠI SVE
+1. NA SAMI VRH - BRIŠI SVE OSTALO SA VRHA
 
 <html lang="hr">
 <body style="background-color:#F6F6F6;">
@@ -22,7 +22,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
             max-width: 1024;
             color: black;
             background-color: white;			
-			/*position: relative;*/			
+	    padding-left: 10px;			
 			}
   			.container{
 			background-color: white;
