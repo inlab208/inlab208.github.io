@@ -5,7 +5,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
 
 1. NA SAMI VRH - BRIŠI SVE OSTALO SA VRHA
 
-<html lang="hr">
+<html>
 <body style="background-color:#F6F6F6;">
 <head>
 <meta http-equiv=Content-Type content="text/html; charset="UTF-8">
