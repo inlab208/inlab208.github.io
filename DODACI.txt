@@ -30,7 +30,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
 			background-color: white;
 			margin: 0 auto;
 			max-width: 1024;
-			overflow: auto;
+			overflow: hiden;
 			border: 1px solid #404040;
 				}
 			@media print {
