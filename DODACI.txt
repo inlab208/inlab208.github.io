@@ -57,7 +57,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
 
 
 <p class="footer-copy" align=center > &copy; 2024. Sva prava pridržana.</p>
-
+</div>
 
 ///////////////////////////////////////////////////////////////////////////////
 
