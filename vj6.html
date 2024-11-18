@@ -1,0 +1,394 @@
+<html>
+<body style="background-color:#F6F6F6;">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset="UTF-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>RV ARDUINO</title>
+<link rel="icon" type="images/png" href="images/ardufav.png" >
+<style>
+			body {
+            background-color: #F6F6F6;
+            user-select: none; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+			}
+			p {
+            max-width: 1024;
+            color: black;
+            background-color: white;			
+	    padding-left: 10px;			
+			}
+  			.container{
+			background-color: white;
+			margin: 0 auto;
+			max-width: 1024;
+			overflow: hiden;
+			border: 1px solid #404040;
+				}
+			@media print {
+				body {
+					display: none; 
+				}
+			}
+			.no-read {
+				display: none;
+			}
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=HR style='word-wrap:break-word'>
+
+<div class=WordSection1>
+<div class="container" role="presentation" aria-hidden="true">
+<p align=center >~</p>
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:14.0pt;line-height:107%'>VJ6-Izrada pružnog prijelaza </span></u></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:14.0pt;line-height:107%'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%'>6.1 </span></b><span
+style='font-size:14.0pt;line-height:107%'>Svjetlosna signalizacija pružnog
+prijelaza</span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span style='font-size:14.0pt'>Električna
+shema</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;line-height:107%'><img width=366 height=451
+id="Slika 20" src="vj6_datoteke/image001.jpg"></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><i><span style='font-size:14.0pt'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><b><span style='font-size:14.0pt'><img width=436
+height=470 id="Slika 21" src="vj6_datoteke/image002.png"
+alt="Slika na kojoj se prikazuje tekst, elektroničko inženjerstvo, elektronika, strujni krug&#10;&#10;Opis je automatski generiran"></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Nadopunite program za svjetlosnu signalizaciju pružnog
+prijelaza. Funkcija delay() je <b>300 ms</b>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Zadatak u 2 koraka:</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><span style='font-size:14.0pt'><img width=400 height=162
+id="Slika 1" src="vj6_datoteke/image003.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+style='font-size:14.0pt'>1)</span></b><span style='font-size:14.0pt'>  Desna LED
+svijetli <b>300 </b>ms</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+style='font-size:14.0pt'>2)</span></b><span style='font-size:14.0pt'> Lijeva LED
+svijetli <b>300</b> ms</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:70.8pt;line-height:normal'><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>.</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:14.0pt'>Nadopunite
+program ( HINT:  6 redaka programa ) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>void setup() {  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>  pinMode(5, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>  pinMode(3, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>void loop() {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Svjetla se izmjenjuju naizmjenično u pauzama po 300
+ms.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+style='font-size:14.0pt'>6.2 </span></b><span style='font-size:14.0pt'>Izrada
+pružnog prijelaza</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Pružni prijelaz ,uz svjetlosnu signalizaciju, najčešće
+ima i rampu koja se diže i spušta. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Kao senzor dolaska i prolaska vlaka koristit ćemo
+tipkalo a kao motor za dizanje i spuštanje rampe koristit ćemo servo motor.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Servo motor je uređaj koji ima izlaznu osovinu.
+Osovina se može postaviti na određene kutne položaje slanjem programiranog
+signala. Sve dok je  programirani signal stalan servo će zadržati <b>kutni
+položaj</b> osovine. Ako se programirani signal promijeni, mijenja se i kutni
+položaj. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Najčešće se servo koristi se za kontrolu kutnog
+kretanja od 0 do 180 stupnjeva. Kut se određuje trajanjem impulsa koji se
+dovodi na ulaz uređaja. Takav programirani signal nazivamo pulsno širinskom
+modulacijom – PWM ( POZNATO ?). Frekvencija je stalna, f = 50 Hz , T = 20 ms.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><i><span style='font-size:14.0pt'>Ulazni signal (od 0 - 180
+stupnjeva)</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><span style='font-size:14.0pt'><img width=433 height=406
+id="Slika 22" src="vj6_datoteke/image004.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><i><span style='font-size:14.0pt'>Servo motor</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><span style='font-size:14.0pt'><img width=398 height=351
+id="Slika 24" src="vj6_datoteke/image005.jpg"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><i><span style='font-size:14.0pt'>Električna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+line-height:normal'><i><span style='font-size:14.0pt'><img width=426
+height=444 id="Slika 4" src="vj6_datoteke/image006.jpg"></span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:normal'><i><span
+style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:normal'><i><span
+style='font-size:14.0pt'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:normal'><b><span
+style='font-size:14.0pt'><img width=475 height=510 id="Slika 32"
+src="vj6_datoteke/image007.png"
+alt="Slika na kojoj se prikazuje elektroničko inženjerstvo, strujni krug, elektronika, komponenta strujnog kruga&#10;&#10;Opis je automatski generiran"></span></b></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:14.0pt'>Upišite
+sljedeći program</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>#include &lt;Servo.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>int pos = 0;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>int x = 0;  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>int y = 1;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>int a = 0;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>int b = 0;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>Servo servo;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>void setup(){</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  servo.attach(9);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  pinMode (2, INPUT_PULLUP);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  pinMode (3, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  pinMode (5, OUTPUT);  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>void loop(){</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  int val = digitalRead(2);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  if (val == 0 &amp;&amp; y == 1) x = !x ;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>    y = digitalRead(2); </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  if (x == 1)  pos = pos + 2;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>    if (pos &gt;= 90) pos = 90;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>      if (x == 0)  pos = pos - 2;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>        if ( pos &lt;=0) pos = 0;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>          servo.write(pos);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  if (pos != 0) { b = a; a = !a; } </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>    else { b = 0 ; a = 0; }   </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  digitalWrite(3, a);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  digitalWrite(5, b);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>  delay (300);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><i><span style='font-size:14.0pt;
+line-height:107%'>}</span></i></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Pritiskom tipkala <a name="_Hlk48496610">( NAJMANJE
+300 ms ) </a>uključujemo signalizaciju i spuštamo rampu.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>Ponovnim pritiskom tipkala ( NAJMANJE 300 ms ) dižemo
+rampu i isključujemo signalizaciju.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='font-size:14.0pt;
+line-height:107%;color:#4EA72E'>#include</span></i></b><span style='font-size:
+14.0pt;line-height:107%;color:#4EA72E'> </span><span style='font-size:14.0pt;
+line-height:107%'>- ovom naredbom se</span><span style='font-size:14.0pt;
+line-height:107%'> od prevoditelja traži da uključi  u program datoteku <b><i><span
+style='color:#E97132'>Servo.h</span></i></b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:14.0pt'>koja sadrži informacije nužne za korištenje funkcija
+servo motora.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+<p class="footer-copy" align=center > &copy; 2024. Sva prava pridržana.</p>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftesla208.pages.dev&count_bg=%2379C83D&title_bg=%23555555&icon=arduino.svg&icon_color=%23FFFFFF&title=hits&edge_flat=true"/></a>
+</div>
+</div>
+
+</body>
+
+</html>
