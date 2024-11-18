@@ -1,0 +1,513 @@
+<html>
+<body style="background-color:#F6F6F6;">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset="UTF-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>RV ARDUINO</title>
+<link rel="icon" type="images/png" href="images/ardufav.png" >
+<style>
+			body {
+            background-color: #F6F6F6;
+            user-select: none; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+			}
+			p {
+            max-width: 1024;
+            color: black;
+            background-color: white;			
+	    padding-left: 10px;			
+			}
+  			.container{
+			background-color: white;
+			margin: 0 auto;
+			max-width: 1024;
+			overflow: hiden;
+			border: 1px solid #404040;
+				}
+			@media print {
+				body {
+					display: none; 
+				}
+			}
+			.no-read {
+				display: none;
+			}
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0in;
+	font-size:11.0pt;
+	font-family:"Aptos",sans-serif;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+<div class="container" role="presentation" aria-hidden="true">
+<p align=center >~</p>
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><a name="_Hlk48176192"><b><u><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>VJ5-</span></u></b></a><b><u><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>Upravljanje
+trčećim svjetlom tipkalom </span></u></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><b><u><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>5.1 </span></b><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>Upravljanje
+LED diodom tipkalom</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>Tipkalo je
+elektronički element (komponenta) koji je spojen samo dok je pritisnut. ( NIJE
+SKLOPKA ). Ima dva stanja, <b>1-0, true-false, HIGH-LOW</b>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>Koristi se na
+većini današnjih uređaja kao što su mobiteli, tableti, tipkovnice, daljinski,
+mikrovalna, perilice, alarmi itd. Na mobitelu tipkalom ugađamo jačinu zvuka,
+uključujemo ga, a neki imaju i „home“ tipku.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>Koristeći funkciju
+<b><i><span style='color:#E97132'>digitalRead()</span></i></b><span
+style='color:#E97132'> </span>čitamo napon digitalnog pina na koji je spojeno
+tipkalo<b>. Napon smije biti 0V ili 5V.</b></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'>Električna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'><img width=508 height=534 id="Slika 1"
+src="vj5_files/image001.png"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'><img width=534 height=582 id="Slika 2"
+src="vj5_files/image002.png"></span><a name="_Hlk48175578"></a></p>
+
+<p class=MsoNormal style='line-height:normal'><span lang=HR style='font-size:
+14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span lang=HR style='font-size:
+14.0pt;font-family:"Times New Roman",serif'>Upišite sljedeći program.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>int
+tipkalo = 0;         </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>void
+setup() { </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(7, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(9, INPUT_PULLUP);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>void
+loop() {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  tipkalo
+= digitalRead(9);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  if
+(tipkalo == HIGH) {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>   
+digitalWrite(7, LOW);  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  } </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  else {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>   
+digitalWrite(7, HIGH);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  }</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><a
+name="_Hlk48175640"><span lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>LED
+dioda bi trebala svijetliti kada je tipkalo pritisnuto</span></a><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>5.2 </span></b><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>Upravljanje
+trčećim svjetlom tipkalom</span></p>
+
+<p class=MsoNormal><i><span lang=HR style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Električna
+shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'><img width=529 height=508 id="Slika 17"
+src="vj5_files/image003.jpg"
+alt="Slika na kojoj se prikazuje dijagram, tekst, tehničko crtanje, Plan&#10;&#10;Opis je automatski generiran"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><i><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><span lang=HR style='font-size:14.0pt;
+font-family:"Times New Roman",serif'><img width=532 height=752 id="Slika 3"
+src="vj5_files/image004.png"></span><a name="_Hlk48417370"></a></p>
+
+<p class=MsoNormal style='line-height:normal'><span lang=HR style='font-size:
+14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span lang=HR style='font-size:
+14.0pt;font-family:"Times New Roman",serif'>Upišite sljedeći program.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>int
+tipkalo;  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>int pauza
+= 500;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>int korak
+= 20;  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>void
+setup() {  </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(7, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(6, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(5, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(4, OUTPUT);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+pinMode(9, INPUT_PULLUP);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+Serial.begin(9600);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>void
+loop() {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(7, HIGH);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+brzina(); Serial.println(pauza);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+delay(pauza);                       </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(7, LOW);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(6, HIGH);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+brzina(); Serial.println(pauza);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+delay(pauza);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(6, LOW);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(5, HIGH);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+brzina(); Serial.println(pauza);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+delay(pauza);    </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(5, LOW);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(4, HIGH);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+brzina(); Serial.println(pauza);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+delay(pauza);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'> 
+digitalWrite(4, LOW);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>void
+brzina() {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  tipkalo
+= digitalRead(9);</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  if
+(tipkalo == LOW) {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>     
+pauza = pauza - korak;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>      if
+(pauza &lt;= 140) pauza = 140;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>    }</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>  else {</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>    pauza
+= pauza + korak;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>    if
+(pauza &gt;= 500) pauza = 500;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>    }</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>}</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>Pritisnutim
+tipkalom smanjujemo vrijednost varijable <b><i>pauza</i></b>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>Vrijednost
+varijable <b><i>pauza</i></b> ispisujemo u Serijskom monitoru.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>Koja je najmanja
+vrijednost te varijable ? UPIŠITE VRIJEDNOST________</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#E97132'>pinMode (pin, </span></i></b><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif;color:#00979C'>INPUT_PULLUP</span><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>); 
+konfigurira digitalni pin kao ulazni sa spojenim unutarnjim pull-up otpornikom.
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Što su to
+pull-down i pull-up otpornici ? (predavanje prof. Ecimovića) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif;color:#E36C0A'>digitalRead() 
+</span></b><span lang=HR style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>očitava digitalni napon sa digitalnog ulaznog pina (
+0V ili 5V )</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Sintaksa:
+digitalRead(pin) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Argumenti: pin je
+broj digitalnog pina</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif;color:black'>VAŽNO!
+Vraća vrijednost HIGH  ili LOW ( 1 ili 0 ) !</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif;color:black'>Vraćenu
+vrijednost HIGH ili LOW pridružujemo VARIJABLI.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Primjer:</span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>VARIJABLA= digitalRead(broj pina);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>if – else</span></i><span lang=HR style='font-size:
+14.0pt;font-family:"Times New Roman",serif'>   - dvostruka naredba grananja</span></p>
+
+<p class=MsoNoSpacing><b><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif;color:#92D050'>if </span></i><i><span lang=HR
+style='font-size:14.0pt;font-family:"Times New Roman",serif'>(uvjetni izraz)</span></i></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>{</span></i></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>// blok naredbi </span></i></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>}</span></i></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif;color:#92D050'>else</span></i></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>{</span></i></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt;font-family:
+"Times New Roman",serif'>// blok naredbi </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=HR style='font-size:14.0pt;font-family:"Times New Roman",serif'>}</span></i></p>
+<p class="footer-copy" align=center > &copy; 2024. Sva prava pridržana.</p>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftesla208.pages.dev&count_bg=%2379C83D&title_bg=%23555555&icon=arduino.svg&icon_color=%23FFFFFF&title=hits&edge_flat=true"/></a>
+</div>
+
+</div>
+
+</body>
+
+</html>
