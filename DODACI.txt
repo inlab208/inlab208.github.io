@@ -61,7 +61,7 @@ window.onload = function() {
   if (!confirm("Za pozitivnu ocjenu potrebno je odraditi vježbu i napisati dokumentaciju !")) {
   location.href = 'https://google.com' ;
   }
-}
+};
 </script>
 
 //////////////////////////////////////////////////////////////////////////////
