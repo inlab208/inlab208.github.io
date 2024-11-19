@@ -48,7 +48,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
 
 2. POPUP - ISPOD <body......> 
 
-<script>
+<script type="text/javascript">
 window.onload = function() {
   alert("Za pozitivnu ocjenu potrebno je odraditi vježbu i napisati dokumentaciju !");
 };
