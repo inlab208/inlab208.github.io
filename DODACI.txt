@@ -46,14 +46,24 @@ CONVERTIRATI u HTM --> 0FFICE 365
 
 //////////////////////////////////////////////////////////////////////////////
 
-2. ISPOD <div class=WordSection1>
+2. POPUP - ISPOD <body......> 
+
+<script>
+window.onload = function() {
+  alert("Za pozitivnu ocjenu potrebno je odraditi vježbu i napisati dokumentaciju !");
+};
+</script>
+
+//////////////////////////////////////////////////////////////////////////////
+
+3. ISPOD <div class=WordSection1>
 
 <div class="container" role="presentation" aria-hidden="true">
 <p align=center >~</p>
 
 /////////////////////////////////////////////////////////////////////////////
 
-3. NA SAMOM KRAJU PRIJE </div> DODATI
+4. NA SAMOM KRAJU PRIJE </div> DODATI
 
 
 <p class="footer-copy" align=center > &copy; 2024. Sva prava pridržana.</p>
@@ -62,8 +72,8 @@ CONVERTIRATI u HTM --> 0FFICE 365
 
 ///////////////////////////////////////////////////////////////////////////////
 
-
-{4. HITS (ODMAH POSLIJE 3. PRIJE </div>)}
+OPCIONALNO JER JE VEĆ POD 4.
+{5. HITS (ODMAH POSLIJE 3. PRIJE </div>)}
 
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftesla208.pages.dev&count_bg=%2379C83D&title_bg=%23555555&icon=arduino.svg&icon_color=%23FFFFFF&title=hits&edge_flat=true"/></a>
 
