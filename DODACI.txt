@@ -50,7 +50,7 @@ CONVERTIRATI u HTM --> 0FFICE 365
 
 <script type="text/javascript">
 window.onload = function() {
-  alert("Za pozitivnu ocjenu potrebno je odraditi vježbu i napisati dokumentaciju !");
+  alert("Za pozitivnu ocjenu potrebno je: 1) Odraditi vježbu 2) Napisati dokumentaciju 3) Objasniti rad el. sklopa (razumijevanje odrađenog)");
 };
 </script>
 
@@ -58,7 +58,7 @@ window.onload = function() {
 
 <script type="text/javascript">
 window.onload = function() {
-  if (!confirm("Za pozitivnu ocjenu potrebno je odraditi vježbu i napisati dokumentaciju !")) {
+  if (!confirm("Za pozitivnu ocjenu potrebno je: 1) Odraditi vježbu 2) Napisati dokumentaciju 3) Objasniti rad el. sklopa (razumijevanje odrađenog)")) {
   location.href = 'https://google.com' ;
   }
 };
