@@ -1,0 +1,382 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>RV ARDUINO</title>
+<link rel="icon" type="images/png" href="images/ardufav.png" >
+<style>
+			body {
+            background-color: #F6F6F6;
+            user-select: none; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+			}
+			p {
+            max-width: 1024;
+            color: black;
+            background-color: white;			
+	    padding-left: 10px;			
+			}
+  			.container{
+			background-color: white;
+			margin: 0 auto;
+			max-width: 1024;
+			overflow: hiden;
+			border: 1px solid #404040;
+				}
+			@media print {
+				body {
+					display: none; 
+				}
+			}
+			.no-read {
+				display: none;
+			}
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+	
+<div class=WordSection1>
+<div class="container" role="presentation" aria-hidden="true">
+<p align=center >~</p>
+<p class=MsoNormal align=center style='text-align:center'><b><u><span lang=HR
+style='font-size:14.0pt;line-height:107%'>VJ1-Bljeskanje LED diode</span></u></b></p>
+
+<p class=MsoNoSpacing align=center style='text-align:center'><b><u><span
+lang=HR style='font-size:14.0pt'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt'>Arduino Uno</span></i></b><span
+lang=HR style='font-size:14.0pt'> je jedna od najpoznatijih razvojnih platformi
+za edukaciju u svijetu. Koriste ga hobisti, elektroničari svih generacija  kao
+i učitelji  za edukaciju od osnovne škole do fakulteta. Programski jezik
+Arduina je modificirani C/C++ jezik s mnoštvom već ugrađenih funkcija tako da
+nam uvelike olakšava programiranje. </span><span lang=HR><a
+href="https://www.arduino.cc/reference/en/"><b><i><span style='font-size:14.0pt'>https://www.arduino.cc/reference/en</span></i></b></a></span></p>
+
+<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Vježbe ćemo
+izvoditi u Tinkercadu.  </span><span lang=HR><a
+href="https://www.tinkercad.com/"><b><i><span style='font-size:14.0pt'>https://www.tinkercad.com/</span></i></b></a></span></p>
+
+<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-GB
+style='font-size:14.0pt;line-height:107%'><img border=0 width=613 height=634
+id="Slika 0" src="vj1_files/image001.jpg"
+alt="Slika na kojoj se prikazuje tekst, snimka zaslona&#10;&#10;Opis je automatski generiran"></span></p>
+
+<b><u><span lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span></u></b>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'>1.1</span></b><span
+lang=HR style='font-size:14.0pt;line-height:107%'> Minimalni program koji
+možemo pokrenuti na Arduinu.(engl. <b><i><span style='color:black;border:none windowtext 1.0pt;
+padding:0in;background:white'>BareMinimum</span></i></b>) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><a
+name="_Hlk48080090"></a><a name="_Hlk48078453"><span lang=HR style='font-size:
+14.0pt'>Upišite sljedeći program. </span></a></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#ED7D31'>setup</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>// put your setup code here, to run once:</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#ED7D31'>loop</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#434F54'>// put your main code here, to run repeatedly:</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><i><span
+lang=HR style='font-size:14.0pt'>&nbsp;</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Ovaj program ne radi ništa. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=HR style='font-size:14.0pt'>1.2</span></b><span lang=HR style='font-size:
+14.0pt'> Bljeskanje LED diode.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>U većini programskih jezika prvi program koji napišemo
+ispisuje na ekran &quot;Pozdrav svijete&quot;. Arduino Uno  nema ekran pa ćemo 
+kao prvi program napisati program za bljeskanje LED diode.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Arduino UNO ima ugrađenu LED diodu spojenu s pinom 13
+oznake <b>L</b> . Pronađite oznaku <b>L</b>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+text-indent:35.4pt;line-height:normal'><a name="_Hlk48574908"><i><span lang=HR
+style='font-size:14.0pt'>Električna </span></i></a><i><span lang=HR
+style='font-size:14.0pt'>shema   </span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=HR style='font-size:14.0pt'><img border=0
+width=434 height=449 id="Slika 3" src="vj1_files/image002.jpg"
+alt="Slika na kojoj se prikazuje tekst, dijagram&#10;&#10;Opis je automatski generiran"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><i><span lang=HR style='font-size:14.0pt'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=HR style='font-size:14.0pt'><img border=0
+width=617 height=453 id="Picture 39" src="vj1_files/image003.png"
+alt="Slika na kojoj se prikazuje tekst, elektroničko inženjerstvo, elektronika, elektronička komponenta&#10;&#10;Opis je automatski generiran"></span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Upišite sljedeći program. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#C45911'>setup</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>pinMode</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>( </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>13,
+OUTPUT<span style='color:black'>);</span></span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#00979C'>void</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'> </span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:#C45911'>loop</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:black'>() {</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>digitalWrite</span></i></b><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:black'>( </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>13,
+HIGH<span style='color:black'>); &nbsp;&nbsp;</span></span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>1000<span
+style='color:black'>); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>digitalWrite</span></i></b><b><i><span lang=HR style='font-size:
+14.0pt;line-height:107%;font-family:"Courier New";color:black'>( </span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>13,
+LOW<span style='color:black'>); &nbsp;&nbsp;&nbsp;</span></span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'> &nbsp;</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New";
+color:#D35400'>delay</span></i></b><b><i><span lang=HR style='font-size:14.0pt;
+line-height:107%;font-family:"Courier New";color:black'>(</span></i></b><b><i><span
+lang=HR style='font-size:14.0pt;line-height:107%;font-family:"Courier New"'>1000<span
+style='color:black'>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:black'>}</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>Objašnjenje koda.</span></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
+color:black;background:white'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='background:white'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%;color:black;background:white'>SVAKI Arduino program
+MORA sadržavati  funkciju&nbsp;<i>setup()</i>&nbsp;i&nbsp;<i> loop()</i></span></b></p>
+
+<p class=MsoNormal style='background:white'><b><i><span lang=HR
+style='font-size:14.0pt;line-height:107%;color:black;background:white'> </span></i></b><b><span
+lang=HR style='font-size:14.0pt;line-height:107%;color:black;background:white'>Svaku
+od tih funkcija moramo napisati SAMO JEDNOM u programu.</span></b></p>
+
+<p class=MsoNormal style='background:white'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%;color:black;background:white'>Komentar za jedan redak
+započinje s dvije kose crte  // .</span></b></p>
+
+<p class=MsoNormal style='background:white'><b><span lang=HR style='font-size:
+14.0pt;line-height:107%;color:black;background:white'>Operator    </span></b><b><span
+lang=HR style='font-size:14.0pt;line-height:107%;color:#0070C0;background:white'>=</span></b><b><span
+lang=HR style='font-size:14.0pt;line-height:107%;color:black;background:white'>   
+nazivamo operatorom pridruživanja ili dodjeljivanja.( NIJE ZNAK  JEDNAKO!!! )</span></b></p>
+
+<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>&nbsp;</span></i></b></p>
+
+<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>setup()</span></i></b><b><span
+lang=HR style='font-size:14.0pt;color:#C45911'>  </span></b><span lang=HR
+style='font-size:14.0pt'>je funkcija koja se izvršava samo jednom. (moramo
+napisati jednom)</span></p>
+
+<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>loop()</span></i></b><b><span
+lang=HR style='font-size:14.0pt;color:#C45911'>&nbsp; </span></b><span lang=HR
+style='font-size:14.0pt'>je funkcija koja se izvršava beskonačno.&nbsp; (moramo
+napisati jednom)</span></p>
+
+<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Unutar funkcija
+nalaze se naredbe koje moraju započeti i završiti vitičastom zagradom  </span></p>
+
+<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt'>{ </span></i></b></p>
+
+<p class=MsoNoSpacing><i><span lang=HR style='font-size:14.0pt'>// blok naredbi<b>
+</b></span></i></p>
+
+<p class=MsoNormal><b><i><span lang=HR style='font-size:14.0pt;line-height:
+107%'> }</span></i></b></p>
+
+<p class=MsoNormal><b><i><span lang=HR style='font-size:14.0pt;line-height:
+107%'>&nbsp;</span></i></b></p>
+
+<p class=MsoNoSpacing><b><i><span lang=HR style='font-size:14.0pt;color:#C45911'>delay
+()</span></i></b><span lang=HR style='font-size:14.0pt;color:#C45911'> </span><span
+lang=HR style='font-size:14.0pt'>,je funkcija koja privremeno zaustavlja
+izvršenje programa (pauza)</span></p>
+
+<p class=MsoNoSpacing><span lang=HR style='font-size:14.0pt'>Sintaksa: delay
+(vrijednost). </span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Argumenti:
+vrijednost je cijeli broj u milisekundama.  </span></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
+color:#E36C0A'>pinMode()</span></b><span lang=HR style='font-size:14.0pt;
+line-height:107%'> ,konfigurira digitalni pin kao ulazni ili izlazni</span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Sintaksa:
+pinMode (pin, mod)</span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Argumenti:
+pin: broj pina, mod: INPUT ili OUTPUT (tj. ulazni ili izlazni)</span></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%;
+color:#E36C0A'>digitalWrite()</span></b><span lang=HR style='font-size:14.0pt;
+line-height:107%'>  ,upisuje ili HIGH  (binarno 1) na digitalnom pinu ili LOW
+(binarno 0) na digitalnom pinu. </span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Sintaksa:
+digitalWrite (pin, vrijednost). </span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Argumenti:
+pin je broj pina, vrijednost: HIGH ili LOW  (HIGH je binarna 1 ,a LOW binarna
+0)</span></p>
+
+<p class=MsoNormal><span lang=HR style='font-size:14.0pt;line-height:107%'>Ako
+upišemo HIGH pin će biti na 5V , a ako upišemo LOW na 0V. Bez funkcije <i>pinMode()</i>
+neće ispravno raditi.</span></p>
+
+<p class=MsoNormal><b><span lang=HR style='font-size:14.0pt;line-height:107%'>Možemo
+zaključiti da funkcijom <i><span style='color:#E36C0A'>digitalWrite()</span></i><span
+style='color:#E36C0A'> </span>zapravo upravljamo naponom na pinu (0V ili 5V).</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span lang=HR
+style='font-size:14.0pt'>&nbsp;</span></p>
+<p class="footer-copy" align=center > &copy; <script>document.write(new Date().getFullYear())</script>. Sva prava pridržana.</p>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftesla208.pages.dev&count_bg=%2379C83D&title_bg=%23555555&icon=arduino.svg&icon_color=%23FFFFFF&title=hits&edge_flat=true"/></a>
+</div>
+</div>
+
+</body>
+
+</html>
