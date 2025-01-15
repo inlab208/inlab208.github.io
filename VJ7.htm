@@ -1,0 +1,898 @@
+<html>
+<body style="background-color:#F6F6F6;">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset="UTF-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>RV ARDUINO</title>
+<link rel="icon" type="images/png" href="images/ardufav.png" >
+<style>
+			body {
+            background-color: #F6F6F6;
+            user-select: none; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+			}
+			p {
+            max-width: 1024;
+            color: black;
+            background-color: white;			
+	    padding-left: 10px;			
+			}
+  			.container{
+			background-color: white;
+			margin: 0 auto;
+			max-width: 1024;
+			overflow: hiden;
+			border: 1px solid #404040;
+				}
+			@media print {
+				body {
+					display: none; 
+				}
+			}
+			.no-read {
+				display: none;
+			}
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=HR>
+
+<div class=WordSection1>
+<div class="container" role="presentation" aria-hidden="true">
+<p align=center >~</p>
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:14.0pt;line-height:106%'>VJ7-Izrada elektroničke kocke</span></u></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+ style='text-decoration:none'>&nbsp;</span></u></b></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:106%'>7.1 </span></b><span
+style='font-size:14.0pt;line-height:106%'> Izrada elektroničke kocke</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:14.0pt;line-height:106%'>Električna shema</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=442
+height=314 id="Picture 2" src="VJ7_files/image001.png"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:14.0pt;line-height:106%'>Montažna shema</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=442
+height=445 id="Picture 1" src="VJ7_files/image002.png"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;line-height:106%'>Upišite sljedeći program</span></p>
+
+<div align=center>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>int</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'> tipka;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>int</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'> broj</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>=</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>0;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>int</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'> pauza </span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>=</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> 300;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>void</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'> </span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#5E6D03'>setup</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>() {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(2</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>INPUT_PULLUP</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(3</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>OUTPUT</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(4</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>OUTPUT</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(5</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>OUTPUT</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(6</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>OUTPUT</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(7</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>OUTPUT</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#D35400'>pinMode</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(8</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>OUTPUT</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>void</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'> </span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#5E6D03'>loop</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>() {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;tipka</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:#434F54'>=</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#D35400'>digitalRead</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(2);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#5E6D03'>if</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>(tipka</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#434F54'>==</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>0) </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(3</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>HIGH</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>delay</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(pauza);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(3</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>LOW</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(4</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>HIGH</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>delay</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(pauza);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(4</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>LOW</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(5</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>HIGH</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>delay</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(pauza);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(5</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>LOW</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(8</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>HIGH</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>delay</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(pauza);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(8</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>LOW</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(7</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>HIGH</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>delay</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(pauza);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(7</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>LOW</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(6</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>HIGH</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>delay</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(pauza);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#D35400'>digitalWrite</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(6</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>,</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#00979C'>LOW</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;broj</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#434F54'>=</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>random</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>(1</span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>7);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#5E6D03'>if</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>(tipka</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#434F54'>==</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>1) </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>     { &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#5E6D03'>if</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(broj</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>==</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>1) {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(3</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(4</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(5</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(6</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(7</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(8</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+  </td>
+  <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;&nbsp;&nbsp;   </span><span style='font-size:12.0pt;
+  line-height:106%;font-family:"Courier New";color:#5E6D03'>if</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(broj</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>==</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>2) {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(3</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(4</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(5</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(6</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(7</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(8</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#5E6D03'>        </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#5E6D03'>      if</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>(broj</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>==</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>3) {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(3</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(4</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(5</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(6</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(7</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(8</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#5E6D03'>if</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(broj</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>==</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>4) {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(3</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(4</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(5</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(6</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(7</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(8</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#5E6D03'>if</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(broj</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>==</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>5) {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(3</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(4</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(5</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(6</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(7</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>LOW</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(8</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#5E6D03'>if</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>(broj</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:#434F54'>==</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:black'>6) {</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(3</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(4</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(5</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(6</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(7</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#D35400'>digitalWrite</span><span style='font-size:12.0pt;line-height:
+  106%;font-family:"Courier New";color:black'>(8</span><span style='font-size:
+  12.0pt;line-height:106%;font-family:"Courier New";color:#434F54'>,</span><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:#00979C'>HIGH</span><span style='font-size:12.0pt;line-height:106%;
+  font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'> &nbsp;&nbsp;&nbsp;}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%;font-family:"Courier New";
+  color:black'>}</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='font-size:12.0pt;line-height:106%'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+<p class="footer-copy" align=center > &copy; <script>document.write(new Date().getFullYear())</script>. Sva prava pridržana.</p>
+<a href="https://hits.seeyoufarm.com"><img align=left src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftesla208.pages.dev&count_bg=%2379C83D&title_bg=%23555555&icon=arduino.svg&icon_color=%23FFFFFF&title=hits&edge_flat=true"/></a>
+<p align=left >* </p>
+</div>
+</div>
+
+</body>
+
+</html>
