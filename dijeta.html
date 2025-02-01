@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Natjecanje u mršavljenju (Cloud verzija)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .input-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+            width: 150px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .chart-container {
+            margin-top: 30px;
+        }
+        #loading {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Natjecanje u mršavljenju 🏆</h1>
+    <div id="loading">Učitavam podatke...</div>
+
+    <div class="input-section">
+        <h2>Početne težine</h2>
+        <div class="input-group">
+            <label>Natjecatelj 1 (Crveni):</label>
+            <input type="number" id="initial1" placeholder="Početna težina (kg)">
+        </div>
+        <div class="input-group">
+            <label>Natjecatelj 2 (Plavi):</label>
+            <input type="number" id="initial2" placeholder="Početna težina (kg)">
+        </div>
+    </div>
+
+    <div class="input-section">
+        <h2>Dnevni unos težine</h2>
+        <div class="input-group">
+            <label>Natjecatelj 1:</label>
+            <input type="number" id="daily1" placeholder="Današnja težina (kg)">
+            <button onclick="addData(1)">Dodaj</button>
+        </div>
+        <div class="input-group">
+            <label>Natjecatelj 2:</label>
+            <input type="number" id="daily2" placeholder="Današnja težina (kg)">
+            <button onclick="addData(2)">Dodaj</button>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="progressChart"></canvas>
+    </div>
+
+    <script>
+        // 🔥 Firebase konfiguracija (ZAMIJENI SA SVOJIM PODACIMA)
+        const firebaseConfig = {
+  apiKey: "AIzaSyC8ehN6YyUUgkCf1j9k8GJyUkCqpUYloI8",
+  authDomain: "dijeta-tesla.firebaseapp.com",
+  projectId: "dijeta-tesla",
+  storageBucket: "dijeta-tesla.firebasestorage.app",
+  messagingSenderId: "1094222047161",
+  appId: "1:1094222047161:web:1ab01505eb02c3a9a0f868"
+};
+
+        // Inicijalizacija Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(app);
+        const competitionId = "glavno_natjecanje";
+
+        let chart = null;
+        const data = {
+            labels: [],
+            datasets: [{
+                label: 'Natjecatelj 1',
+                data: [],
+                borderColor: 'rgb(255, 99, 132)',
+                tension: 0.1
+            }, {
+                label: 'Natjecatelj 2',
+                data: [],
+                borderColor: 'rgb(54, 162, 235)',
+                tension: 0.1
+            }]
+        };
+
+        // Funkcija za učitavanje podataka
+        async function loadData() {
+            showLoading(true);
+            try {
+                const doc = await db.collection('competitions').doc(competitionId).get();
+                if (doc.exists) {
+                    const dbData = doc.data();
+                    data.labels = dbData.labels || [];
+                    data.datasets[0].data = dbData.dataset1 || [];
+                    data.datasets[1].data = dbData.dataset2 || [];
+                    document.getElementById('initial1').value = dbData.initial1 || '';
+                    document.getElementById('initial2').value = dbData.initial2 || '';
+                }
+                initChart();
+            } catch (error) {
+                console.error("Greška pri učitavanju:", error);
+                alert("Došlo je do greške pri učitavanju podataka!");
+            }
+            showLoading(false);
+        }
+
+        // Funkcija za spremanje podataka
+        async function saveData() {
+            showLoading(true);
+            try {
+                await db.collection('competitions').doc(competitionId).set({
+                    labels: data.labels,
+                    dataset1: data.datasets[0].data,
+                    dataset2: data.datasets[1].data,
+                    initial1: document.getElementById('initial1').value,
+                    initial2: document.getElementById('initial2').value,
+                    lastUpdated: new Date()
+                });
+            } catch (error) {
+                console.error("Greška pri spremanju:", error);
+                alert("Došlo je do greške pri spremanju podataka!");
+            }
+            showLoading(false);
+        }
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            if (chart) chart.destroy();
+            
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Postotak gubitka težine'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function calculatePercentage(initial, current) {
+            return ((initial - current) / initial * 100).toFixed(2);
+        }
+
+        async function addData(natjecatelj) {
+            const initial = parseFloat(document.getElementById(`initial${natjecatelj}`).value);
+            const daily = parseFloat(document.getElementById(`daily${natjecatelj}`).value);
+            
+            if (!initial || isNaN(initial)) {
+                alert('Unesite početnu težinu za natjecatelja ' + natjecatelj);
+                return;
+            }
+            
+            if (!daily || daily > initial) {
+                alert('Neispravna dnevna težina!');
+                return;
+            }
+
+            const postotak = calculatePercentage(initial, daily);
+            const datasetIndex = natjecatelj - 1;
+            
+            data.labels.push(new Date().toLocaleDateString());
+            data.datasets[datasetIndex].data.push(postotak);
+            
+            document.getElementById(`daily${natjecatelj}`).value = '';
+            await saveData();
+            initChart();
+        }
+
+        // Pokreni aplikaciju
+        window.onload = loadData;
+    </script>
+</body>
+</html>
