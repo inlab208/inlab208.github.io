@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="chart-container">
-        <canvas id="progressChart"></canvas>
+        <canvas id="progressChart" style="min-height: 300px; min-width: 300px;"></canvas>
     </div>
     <script>
         // 🔥 Firebase konfiguracija (ZAMIJENI SA SVOJIM PODACIMA)
@@ -172,6 +172,7 @@
                 data: data,
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             title: {
