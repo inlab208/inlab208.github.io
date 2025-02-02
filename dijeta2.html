@@ -2,6 +2,7 @@
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Natjecanje u mršavljenju (Cloud verzija)</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
@@ -16,7 +17,7 @@
         .input-section {
             margin-bottom: 30px;
             padding: 15px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             border-radius: 5px;
         }
         .input-group {
@@ -28,7 +29,7 @@
             width: 150px;
         }
         button {
-            padding: 8px 15px;
+            padding: 10px 15px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -48,34 +49,65 @@
             right: 20px;
             background: #fff;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Media query za mobilne uređaje */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px; /* Povećajte font veličinu */
+            }
+            .input-section {
+                padding: 20px; /* Povećajte padding */
+            }
+            .input-group {
+                margin: 15px 0; /* Povećajte margin */
+            }
+            input {
+                padding: 10px; /* Povećajte padding */
+                width: 200px; /* Povećajte širinu inputa */
+            }
+            button {
+                padding: 12px 20px; /* Povećajte padding */
+                font-size: 16px; /* Povećajte font veličinu */
+            }
+            .chart-container {
+                margin-top: 40px; /* Povećajte margin */
+            }
+            #loading {
+                font-size: 16px; /* Povećajte font veličinu */
+            }
+            /* Test pravilo za provjeru media query-a 
+            h1 {
+                color: red; /* Promijenite boju naslova na crvenu 
+            } */
         }
     </style>
 </head>
 <body>
-    <h1>Natjecanje u mršavljenju 🏆</h1>
+    <h1 style="color:navy" >Weight Loss Competition 🏆</h1>
     <div id="loading">Učitavam podatke...</div>
     <div class="input-section">
-        <h2>Početne težine</h2>
+        <h2>Početna težina (kg)</h2>
         <div class="input-group">
-            <label>Natjecatelj 1 (Crveni):</label>
+            <label style="color:red" >Natjecatelj 1:</label>
             <input type="number" id="initial1" placeholder="Početna težina (kg)">
         </div>
         <div class="input-group">
-            <label>Natjecatelj 2 (Plavi):</label>
+            <label style="color:blue" >Natjecatelj 2:</label>
             <input type="number" id="initial2" placeholder="Početna težina (kg)">
         </div>
     </div>
     <div class="input-section">
-        <h2>Dnevni unos težine</h2>
+        <h2>Dnevni unos težine (kg)</h2>
         <div class="input-group">
-            <label>Natjecatelj 1:</label>
+            <label style="color:red" >Natjecatelj 1:</label>
             <input type="number" id="daily1" placeholder="Današnja težina (kg)">
             <button onclick="addData(1)">Dodaj</button>
         </div>
         <div class="input-group">
-            <label>Natjecatelj 2:</label>
+            <label style="color:blue" >Natjecatelj 2:</label>
             <input type="number" id="daily2" placeholder="Današnja težina (kg)">
             <button onclick="addData(2)">Dodaj</button>
         </div>
@@ -241,5 +273,6 @@
         // Pokreni aplikaciju
         window.onload = loadData;
     </script>
+	<h5 style="color:gray" > Težina se može upisati samo jednom dnevno. Svaki graf je prikazan postotno s obzirom na početnu težinu.</h5>
 </body>
 </html>
