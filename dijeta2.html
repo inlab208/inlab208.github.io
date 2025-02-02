@@ -229,8 +229,14 @@
                 alert('Unesite početnu težinu za natjecatelja ' + natjecatelj);
                 return;
             }
-            
-            if (!daily ) {
+
+            // Provjera postojanja zareza
+            if (daily.includes(',')) {
+            alert('Koristite decimalnu točku (.) umjesto zareza (,)!'); 
+            return;
+		    
+            // Provjera da li je polje za dnevnu težinu prazno
+            if (isNaN(daily) || parseFloat(daily) <= 0 ) {
                 alert('Neispravna dnevna težina!');
                 return;
             }
