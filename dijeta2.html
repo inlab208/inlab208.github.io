@@ -236,7 +236,7 @@
             return;
 		    
             // Provjera da li je polje za dnevnu težinu prazno
-            if (isNaN(daily) || parseFloat(daily) <= 0 ) {
+            if (!daily || parseFloat(daily) <= 0 ) {
                 alert('Neispravna dnevna težina!');
                 return;
             }
