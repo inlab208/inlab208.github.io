@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Natjecanje u mršavljenju (Cloud verzija)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .input-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+            width: 150px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .chart-container {
+            margin-top: 30px;
+        }
+        #loading {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            padding: 10px;
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Media query za mobilne uređaje */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px; /* Povećajte font veličinu */
+            }
+            .input-section {
+                padding: 20px; /* Povećajte padding */
+            }
+            .input-group {
+                margin: 15px 0; /* Povećajte margin */
+            }
+            input {
+                padding: 10px; /* Povećajte padding */
+                width: 200px; /* Povećajte širinu inputa */
+            }
+            button {
+                padding: 12px 20px; /* Povećajte padding */
+                font-size: 16px; /* Povećajte font veličinu */
+            }
+            .chart-container {
+                margin-top: 40px; /* Povećajte margin */
+            }
+            #loading {
+                font-size: 16px; /* Povećajte font veličinu */
+            }
+            /* Test pravilo za provjeru media query-a 
+            h1 {
+                color: red; /* Promijenite boju naslova na crvenu 
+            } */
+        }
+    </style>
+</head>
+<body>
+	<p style="font-family: 'Lucida Handwriting', cursive; color: green; font-size: 14px;">What you practice, you will become.</p>
+    <h1 style="color:navy" >Weight Loss Competition 🏆</h1>
+    <div id="loading">Učitavam podatke...</div>
+    <div class="input-section">
+        <h2>Početna težina (kg)</h2>
+        <div class="input-group">
+            <label style="color:red" >Natjecatelj 1:</label>
+            <input type="number" id="initial1" placeholder="Početna težina (kg)">
+        </div>
+        <div class="input-group">
+            <label style="color:blue" >Natjecatelj 2:</label>
+            <input type="number" id="initial2" placeholder="Početna težina (kg)">
+        </div>
+    </div>
+    <div class="input-section">
+        <h2>Dnevni unos težine (kg)</h2>
+        <div class="input-group">
+            <label style="color:red" >Natjecatelj 1:</label>
+            <input type="number" id="daily1" placeholder="Današnja težina (kg)">
+            <button onclick="addData(1)">Dodaj</button>
+        </div>
+        <div class="input-group">
+            <label style="color:blue" >Natjecatelj 2:</label>
+            <input type="number" id="daily2" placeholder="Današnja težina (kg)">
+            <button onclick="addData(2)">Dodaj</button>
+        </div>
+    </div>
+    <div class="chart-container">
+        <canvas id="progressChart" style="min-height: 300px; min-width: 300px;"></canvas>
+    </div>
+ <script>
+    // 🔥 Firebase konfiguracija (ZAMIJENI SA SVOJIM PODACIMA)
+    const firebaseConfig = {
+        apiKey: "AIzaSyC8ehN6YyUUgkCf1j9k8GJyUkCqpUYloI8",
+        authDomain: "dijeta-tesla.firebaseapp.com",
+        projectId: "dijeta-tesla",
+        storageBucket: "dijeta-tesla.firebasestorage.app",
+        messagingSenderId: "1094222047161",
+        appId: "1:1094222047161:web:1ab01505eb02c3a9a0f868"
+    };
+    // Inicijalizacija Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(app);
+    const competitionId = "glavno_natjecanje";
+    let chart = null;
+    const data = {
+        labels: [],
+        datasets: [{
+            label: 'Natjecatelj 1',
+            data: [],
+            borderColor: 'rgb(255, 99, 132)',
+            tension: 0.1
+        }, {
+            label: 'Natjecatelj 2',
+            data: [],
+            borderColor: 'rgb(54, 162, 235)',
+            tension: 0.1
+        }]
+    };
+    let lastEntryDate1 = null;
+    let lastEntryDate2 = null;
+
+    // Funkcija za formatiranje datuma u US format (M/D/YYYY)
+    function formatDateToUS(date) {
+        const d = new Date(date);
+        const month = d.getMonth() + 1; // Mjeseci počinju od 0
+        const day = d.getDate();
+        const year = d.getFullYear();
+        return `${month}/${day}/${year}`;
+    }
+
+    // Funkcija za učitavanje podataka
+    async function loadData() {
+        showLoading(true);
+        try {
+            const doc = await db.collection('competitions').doc(competitionId).get();
+            if (doc.exists) {
+                const dbData = doc.data();
+                data.labels = dbData.labels || [];
+                data.datasets[0].data = dbData.dataset1 || [];
+                data.datasets[1].data = dbData.dataset2 || [];
+                document.getElementById('initial1').value = dbData.initial1 || '';
+                document.getElementById('initial2').value = dbData.initial2 || '';
+                lastEntryDate1 = dbData.lastEntryDate1 || null; // Već su spremljeni kao stringovi
+                lastEntryDate2 = dbData.lastEntryDate2 || null; // Već su spremljeni kao stringovi
+            }
+            initChart();
+        } catch (error) {
+            console.error("Greška pri učitavanju:", error);
+            alert("Došlo je do greške pri učitavanju podataka!");
+        }
+        showLoading(false);
+    }
+
+    // Funkcija za spremanje podataka
+    async function saveData() {
+        showLoading(true);
+        try {
+            await db.collection('competitions').doc(competitionId).set({
+                labels: data.labels, // Labels već su u US formatu
+                dataset1: data.datasets[0].data,
+                dataset2: data.datasets[1].data,
+                initial1: document.getElementById('initial1').value,
+                initial2: document.getElementById('initial2').value,
+                lastEntryDate1: lastEntryDate1, // Već je u US formatu
+                lastEntryDate2: lastEntryDate2, // Već je u US formatu
+                //lastUpdated: formatDateToUS(new Date()) // Formatiraj trenutni datum u US format
+            });
+        } catch (error) {
+            console.error("Greška pri spremanju:", error);
+            alert("Došlo je do greške pri spremanju podataka!");
+        }
+        showLoading(false);
+    }
+
+    function showLoading(show) {
+        document.getElementById('loading').style.display = show ? 'block' : 'none';
+    }
+
+    function initChart() {
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Postotak gubitka težine'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function calculatePercentage(initial, current) {
+        return ((initial - current) / initial * 100).toFixed(2);
+    }
+
+    async function addData(natjecatelj) {
+        const initial = parseFloat(document.getElementById(`initial${natjecatelj}`).value);
+        const daily = parseFloat(document.getElementById(`daily${natjecatelj}`).value);
+
+        if (!initial || isNaN(initial)) {
+            alert('Unesite početnu težinu za natjecatelja ' + natjecatelj);
+            return;
+        }
+
+        if (!daily || parseFloat(daily) <= 0) {
+            alert('Neispravna dnevna težina!');
+            return;
+        }
+
+        // Formatirajte trenutni datum u US format
+        const today = formatDateToUS(new Date());
+
+        // Provjeri da li je datum već u labels nizu
+        if (!data.labels.includes(today)) {
+            data.labels.push(today); // Dodajte ga u US formatu
+        }
+
+        // Provjeri da li natjecatelj već ima unesenu vrijednost za taj dan
+        if (natjecatelj === 1 && lastEntryDate1 === today) {
+            alert("Već ste upisali današnju vrijednost.");
+            return;
+        }
+        if (natjecatelj === 2 && lastEntryDate2 === today) {
+            alert("Već ste upisali današnju vrijednost.");
+            return;
+        }
+
+        const postotak = calculatePercentage(initial, daily);
+        const datasetIndex = natjecatelj - 1;
+
+        // Dodaj postotak gubitka težine u odgovarajući dataset
+        data.datasets[datasetIndex].data.push(postotak);
+
+        // Ažuriraj posljednji uneseni datum za natjecatelja
+        if (natjecatelj === 1) {
+            lastEntryDate1 = today; // Već je u US formatu
+        } else if (natjecatelj === 2) {
+            lastEntryDate2 = today; // Već je u US formatu
+        }
+
+        document.getElementById(`daily${natjecatelj}`).value = '';
+        await saveData();
+        initChart();
+    }
+
+
+        // Pokreni aplikaciju
+        window.onload = loadData;
+    </script>
+	<h5 style="color:gray" > * Težina se može upisati samo jednom dnevno. Svaki graf je prikazan postotno s obzirom na početnu težinu.</h5>
+
+</html>
