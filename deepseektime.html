@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEEPSEEK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #bdbbbb;
+            overflow: hidden;
+        }
+        .password-container {
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #32a852;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2a8a45;
+        }
+        .hidden {
+            display: none;
+        }
+        .iframe-container {
+            width: 1024px;
+            height: 100vh;
+            overflow: hidden;
+            border: 2px solid #32a852;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .error-message {
+            text-align: center;
+            font-size: 12px;
+            color: black;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 500px;
+        }
+         
+    </style>
+</head>
+<body>
+
+    <div class="error-message hidden" id="errorMessage">
+        <p>HTTP 503 - Service Unavailable</p>
+        <p>Error Code: XT-936-X</p>
+        <p>The server is currently unable to handle the request due to a temporary overload or maintenance. Please try again later.</p>
+    </div>
+
+    <div class="password-container hidden" id="passwordContainer">
+        <h2>Unesi Lozinku</h2>
+        <input type="password" id="passwordInput" placeholder="Lozinka">
+        <button onclick="checkPassword()">Potvrdi</button>
+        <p id="passwordErrorMessage" style="color: red; display: none;">Pogrešna lozinka!</p>
+    </div>
+
+    <div class="iframe-container hidden" id="iframeContainer">
+        <iframe id="myFrame" title="DEEPSEEK"></iframe>
+    </div>
+
+    <script>
+        
+        function checkTime() {
+            const now = new Date(); 
+            const hours = now.getHours();            
+            const startHour = 8;
+            const endHour = 20;            
+            if (hours < startHour || hours >= endHour) {
+                document.getElementById('errorMessage').classList.remove('hidden');
+            } else {
+                document.getElementById('passwordContainer').classList.remove('hidden');
+            }
+        }      
+        window.onload = checkTime;
+
+        const encodedPassword = 'VmxhZG8=';       
+        const encodedUrl = 'aHR0cHM6Ly93d3cuQ2hhdFN0cmVhbS5vcmcvZW1iZWQ=';
+        function checkPassword() {
+            const userInput = document.getElementById('passwordInput').value;
+            const correctPassword = atob(encodedPassword); 
+            if (userInput === correctPassword) {                
+                document.getElementById('passwordContainer').classList.add('hidden');
+                document.getElementById('iframeContainer').classList.remove('hidden');                
+                const url = atob(encodedUrl);
+                document.getElementById('myFrame').src = url;
+            } else {                
+                document.getElementById('passwordErrorMessage').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
