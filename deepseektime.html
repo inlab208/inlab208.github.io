@@ -61,7 +61,6 @@
             border-radius: 5px;
             max-width: 500px;
         }
-         
     </style>
 </head>
 <body>
@@ -84,35 +83,49 @@
     </div>
 
     <script>
-        
         function checkTime() {
-            const now = new Date(); 
-            const hours = now.getHours();            
+            const now = new Date();
+            const hours = now.getHours();
             const startHour = 8;
-            const endHour = 20;            
+            const endHour = 20;
             if (hours < startHour || hours >= endHour) {
                 document.getElementById('errorMessage').classList.remove('hidden');
             } else {
                 document.getElementById('passwordContainer').classList.remove('hidden');
             }
-        }      
-        window.onload = checkTime;
+        }
 
-        const encodedPassword = 'VmxhZG8=';       
+        function refreshAtTwenty() {
+            const now = new Date();
+            const refreshTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 1, 0);
+
+            if (now < refreshTime) {
+                const timeUntilRefresh = refreshTime - now;
+                setTimeout(function() {
+                    location.reload();
+                }, timeUntilRefresh);
+            }
+        }
+
+        window.onload = function() {
+            checkTime();
+            refreshAtTwenty();
+        };
+
+        const encodedPassword = 'VmxhZG8=';
         const encodedUrl = 'aHR0cHM6Ly93d3cuQ2hhdFN0cmVhbS5vcmcvZW1iZWQ=';
         function checkPassword() {
             const userInput = document.getElementById('passwordInput').value;
-            const correctPassword = atob(encodedPassword); 
-            if (userInput === correctPassword) {                
+            const correctPassword = atob(encodedPassword);
+            if (userInput === correctPassword) {
                 document.getElementById('passwordContainer').classList.add('hidden');
-                document.getElementById('iframeContainer').classList.remove('hidden');                
+                document.getElementById('iframeContainer').classList.remove('hidden');
                 const url = atob(encodedUrl);
                 document.getElementById('myFrame').src = url;
-            } else {                
+            } else {
                 document.getElementById('passwordErrorMessage').style.display = 'block';
             }
         }
     </script>
 
-</body>
 </html>
