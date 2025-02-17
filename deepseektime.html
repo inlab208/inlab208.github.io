@@ -11,21 +11,34 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #bdbbbb;
-            overflow: hidden; /* Dodano da spriječi klizač na body */
         }
         .iframe-container {
-            width: 1024px;
+            width: 100%;
+            max-width: 1024px;
             height: 100vh;
-            overflow: hidden;
             border: 2px solid #32a852;
+            display: flex;
+            flex-direction: column;
         }
         .iframe-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .iframe-container {
+                height: calc(100vh - 2px); /* Kompenzacija za border */
+                width: 100vw;
+                border-left: none;
+                border-right: none;
+            }
+            body {
+                display: block;
+            }
         }
     </style>
     <script>
@@ -33,9 +46,9 @@
             const sada = new Date();
             const sati = sada.getHours();
 
-           /* if (sati < 8 || sati >= 20) {
+           if (sati < 8 || sati >= 20) {
                 window.location.href = "about:blank"; 
-            }*/
+            }
         }
 
         provjeriVrijeme();
@@ -44,10 +57,8 @@
     </script>
 </head>
 <body>
-
     <div class="iframe-container">
         <iframe src="https://www.ChatStream.org/embed" title="DEEPSEEK"></iframe>
     </div>
-
 </body>
 </html>
