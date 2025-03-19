@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimental Chutes Chat</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Removed problematic CORS Proxy helper -->
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #0a0a0f;
+        }
+
+       body {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(45deg, var(--dark-bg) 0%, #1a1a2e 100%);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    box-sizing: border-box; /* Uključi padding u visinu */
+}
+.chat-container {
+    position: relative;
+    max-width: 1024px;
+    margin: 0 auto;
+    border: 2px solid var(--neon-blue);
+    outline: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 15, 0.9);
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.6), 
+                0 0 20px rgba(50, 255, 50, 0.4);
+    overflow: hidden;
+    height: calc(100vh - 40px); /* Oduzmi padding od body-a */
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-container::before {
+    content: "Chutes Chatbot UI";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: rgba(0, 180, 255, 0.9);
+    text-shadow: 
+        0 0 15px rgba(0, 180, 255, 0.6), 
+        0 0 30px rgba(50, 255, 50, 0.9), 
+        0 0 50px rgba(50, 255, 50, 0.8);
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+    animation: fadeInOut 5s infinite; /* Dodana animacija */
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.7; /* Poluprozirno na početku i kraju */
+    }
+    50% {
+        opacity: 1; /* Potpuno vidljivo u sredini */
+    }
+}
+
+
+
+        .status-light {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .status-light.connected {
+            background-color: green;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+        }
+
+       .chat-messages {
+    height: calc(100% - 150px); /* Oduzmi visinu input-containera i drugih elemenata */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    scrollbar-width: none; /* Za Firefox */
+    -ms-overflow-style: none; /* Za IE/Edge */
+}
+
+        .chat-messages::-webkit-scrollbar {
+            display: none; /* Za Chrome/Safari/Opera */
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 15px 20px;
+            border-radius: 20px;
+            animation: messageAppear 0.3s ease-out;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            background: rgba(255, 255, 255, 0.1);
+            align-self: flex-end;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .message.bot {
+            background: rgba(11, 22, 34, 0.7);
+            align-self: flex-start;
+            border: 1px solid var(--neon-purple);
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+        }
+
+        .message.bot p {
+            margin: 0;
+        }
+
+        .message.bot code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+       .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+    flex-shrink: 0; /* Spriječi smanjivanje visine */
+}
+
+        .input-container .input-row {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.5);
+        }
+
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typing indicator styles */
+        .message.bot.typing {
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            gap: 5px;
+            padding: 10px 15px;
+            background: rgba(11, 22, 34, 0.7);
+            border-radius: 20px;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--neon-purple);
+            border-radius: 50%;
+            animation: typing-blink 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing-blink {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Responsivnost */
+        @media (max-width: 600px) {
+            .input-container {
+                flex-direction: column;
+            }
+            input, button {
+                width: 100%;
+            }
+            button {
+                margin-top: 10px;
+            }
+        }
+
+        /* Uputa za brisanje povijesti razgovora */
+.hint {
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+    text-align: center;
+    position: relative;
+    padding: 0 50px; /* Prilagođeno za duže strelice */
+}
+
+.hint::before,
+.hint::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px; /* Još veće strelice */
+    color: #00ffff; /* Neon plavkasta boja */
+    font-weight: bold; /* Deblje strelice */
+}
+
+.hint::before {
+    left: 0;
+    content: '→';
+}
+
+.hint::after {
+    right: 0;
+    content: '←';
+}
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="status-light" id="statusLight"></div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="input-container">
+            <div class="input-row">
+                <input type="text" id="userInput" placeholder="Type your message..." maxlength="6000" />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        <p class="hint" style="margin-bottom: 0;"> Upišite "yyy" za brisanje povijesti razgovora. </p>
+<p style="font-size: 14px; color: #999; margin-top: 0; margin-bottom: 0; text-align: center;"> Izradio: <strong>R@de (2025)</strong> Licenca: MIT </p>
+        </div>
+    </div>
+
+<script>
+const CHUTES_API_TOKEN = 'cpk_09ec69ecdc89452298d0edf7d59d6512.5fa554460d5a5786a9157d14e594718e.q4cOCH9jI3tUQkOp0y1OcRNq9QQW3U1n'; // Zamijenite sa pravim API ključem
+const ENDPOINT = 'https://llm.chutes.ai/v1/chat/completions';
+
+// Local proxy server endpoint - when running with Node.js proxy
+const LOCAL_PROXY = 'http://localhost:3000/proxy';
+
+// Function to get endpoint based on environment
+function getApiEndpoint() {
+    // Always use the local proxy when available
+    if (window.location.protocol === 'http:' && window.location.hostname === 'localhost') {
+        console.log('Using local proxy server');
+        return LOCAL_PROXY;
+    }
+    
+    // Try direct connection as fallback
+    console.log('Using direct API connection');
+    return ENDPOINT;
+}
+const statusLight = document.getElementById('statusLight');
+const chatMessages = document.getElementById('chatMessages');
+const userInput = document.getElementById('userInput');
+
+// Početni prompt
+const initialPrompt = "Želim da odgovaraš isključivo na pitanja vezana uz razvoj softvera, web razvoj i elektrotehniku. Ako pitanje nije vezano uz razvoj softvera, web razvoj i elektrotehniku ljubazno odbij odgovoriti. Molim te, drži se sljedećih pravila: 1. Odgovori trebaju biti koncizni sa maksimalno 8 rečenica. 2. Odgovori moraju biti u MARKDOWN formatu bez HTML tagova. 3. Ako pišeš kod, obavezno ga napiši u MARKDOWN formatu. 4. Ovaj API će lokalno koristiti učenici, pa mi je zato bitno da su odgovori jednostavni, čisti i na hrvatskom. Koristi EMOJI gdje je to prikladno.";
+
+// Brojač poruka korisnika
+let userMessageCount = 0;
+
+// Učitajte historiju poruka iz localStorage
+const savedMessages = JSON.parse(localStorage.getItem('chatHistory')) || [];
+
+// Ako povijest razgovora je prazna, dodajte početni prompt
+if (savedMessages.length === 0) {
+    saveMessage(initialPrompt, 'system');
+} else {
+    savedMessages.forEach(msg => {
+        if (msg.sender === 'user') {
+            createMessageElement(msg.text, msg.sender);
+        } else if (msg.sender === 'bot') {
+            const formattedText = marked.parse(msg.text); // Ponovno formatirajte tekst
+            createMessageElement(formattedText, msg.sender);
+        }
+    });
+}
+
+// Postavi fokus na input polje prilikom učitavanja stranice
+window.onload = () => {
+    userInput.focus();
+};
+
+// Variable to track API connection status
+let apiConnected = false;
+
+async function checkApiStatus() {
+    try {
+        const endpoint = getApiEndpoint();
+        console.log(`Checking API status using endpoint: ${endpoint}`);
+        
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${CHUTES_API_TOKEN}`
+            },
+            body: JSON.stringify({ 
+                "model": "unsloth/gemma-3-27b-it",
+                "messages": [{ "role": "user", "content": "ping" }],
+                "max_tokens": 5
+            })
+        });
+
+        if (response.ok) {
+            statusLight.classList.add('connected');
+            apiConnected = true;
+            clearInterval(apiStatusInterval); // Zaustavi pinganje
+            console.log('Connected to API successfully');
+            return;
+        } else {
+            statusLight.classList.remove('connected');
+            apiConnected = false;
+            console.log('API connection failed with status:', response.status);
+        }
+    } catch (error) {
+        console.error('API connection failed:', error);
+        statusLight.classList.remove('connected');
+        apiConnected = false;
+        
+        // Show helpful message if running locally without proxy server
+        if (window.location.protocol === 'file:') {
+            console.warn('You are running this app directly from a file. Please use the Node.js proxy server instead.');
+            createMessageElement('⚠️ CORS Error: You are running this app directly from a file. To fix this issue, please run the Node.js proxy server with: <br>1. <code>npm install</code><br>2. <code>npm start</code><br>3. Open <a href="http://localhost:3000/CHUTES.html" target="_blank">http://localhost:3000/CHUTES.html</a>', 'bot');
+        }
+    }
+}
+
+// Provjerite status API-ja pri učitavanju stranice
+checkApiStatus();
+
+// Provjeravajte status svakih 5 sekundi
+let apiStatusInterval; // Deklariraj varijablu ovdje
+
+apiStatusInterval = setInterval(checkApiStatus, 5000); // Pokreni pinganje
+
+
+async function sendMessage() {
+    const message = userInput.value.trim();
+    if (!message) {
+        alert('Please enter a message.');
+        return;
+    }
+
+    // Provjerite da li je unesena tajna riječ za brisanje povijesti razgovora
+    if (message.toLowerCase() === 'yyy') {
+        if (confirm('Jeste li sigurni da želite obrisati povijest razgovora?')) {
+            localStorage.removeItem('chatHistory');
+            chatMessages.innerHTML = ''; // Očistite prikaz poruka
+            userInput.value = '';
+            // Dodajte početni prompt ponovno
+            saveMessage(initialPrompt, 'system');
+            userMessageCount = 0; // Resetujte brojač poruka
+            return;
+        }
+    }
+
+    createMessageElement(message, 'user');
+    userInput.value = '';
+    userInput.disabled = true;
+    document.querySelector('button').disabled = true;
+
+    try {
+        const messageDiv = createMessageElement('', 'bot');
+        addTypingIndicator(messageDiv);
+
+        // Učitajte cijelu povijest razgovora
+        const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+
+        // Ograničite povijest na zadnjih 30 poruka
+        const recentHistory = chatHistory.slice(-30);
+        
+        // Pripremi poruke u formatu koji očekuje Chutes API
+        const messages = [];
+        
+        // Dodaj inicijalni prompt kao system poruku - uvijek ga šalji kao prvu poruku
+        messages.push({
+            "role": "system",
+            "content": initialPrompt
+        });
+        
+        // Dodaj povijest razgovora
+        recentHistory.forEach(msg => {
+            if (msg.sender === 'user' || msg.sender === 'bot') {
+                messages.push({
+                    "role": msg.sender === 'user' ? "user" : "assistant",
+                    "content": msg.text
+                });
+            }
+        });
+
+        
+        // Dodaj trenutnu poruku korisnika
+        messages.push({
+            "role": "user",
+            "content": message
+        });
+        
+        // Povećavajte brojač poruka korisnika
+        userMessageCount++;
+
+        // Get the appropriate endpoint (direct or proxy)
+        const endpoint = getApiEndpoint();
+        console.log(`Sending message using endpoint: ${endpoint}`);
+        
+        const fetchOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${CHUTES_API_TOKEN}`
+            },
+            body: JSON.stringify({
+                "model": "unsloth/gemma-3-27b-it",
+                "messages": messages,
+                "stream": true,
+                "max_tokens": 1024,
+                "temperature": 0.7
+            })
+        };
+        
+        const response = await fetch(endpoint, fetchOptions);
+
+        // Provjeri je li stream dostupan
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        
+        removeTypingIndicator(messageDiv);
+        messageDiv.innerHTML = '';
+        
+        // Obradi stream odgovora
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let responseText = '';
+        
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            
+            // Dekodiraj chunk
+            const chunk = decoder.decode(value, { stream: true });
+            
+            // Obradi svaku liniju u chunk-u
+            const lines = chunk.split('\n').filter(line => line.trim() !== '');
+            
+            for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                    const data = line.substring(6);
+                    if (data === '[DONE]') continue;
+                    
+                    try {
+                        const json = JSON.parse(data);
+                        if (json.choices && json.choices[0].delta && json.choices[0].delta.content) {
+                            const content = json.choices[0].delta.content;
+                            responseText += content;
+                            const formattedText = marked.parse(responseText);
+                            messageDiv.innerHTML = formattedText;
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }
+                    } catch (e) {
+                        console.error('Error parsing JSON:', e);
+                    }
+                }
+            }
+        }
+        
+        // Formatiraj konačni odgovor
+        const formattedText = marked.parse(responseText);
+
+        // Spremite poruku i formatirani odgovor u localStorage
+        saveMessage(message, 'user');
+        saveMessage(formattedText, 'bot');
+
+    } catch (error) {
+        console.error('Error in sendMessage:', error);
+        
+        // Display a more helpful error message
+        let errorMessage = `Error: ${error.message}`;
+        
+        if (error.message.includes('CORS') || error.message.includes('Failed to fetch')) {
+            // Check if we're running from file:// protocol
+            if (window.location.protocol === 'file:') {
+                errorMessage = `<div style="background: rgba(255,50,50,0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,50,50,0.3);">
+                <h3>🚫 CORS Error</h3>
+                <p>Vaša aplikacija se pokreće direktno iz datoteke, što uzrokuje CORS probleme.</p>
+                <p><strong>Rješenje:</strong></p>
+                <ol>
+                    <li>Otvorite terminal/command prompt u direktoriju projekta</li>
+                    <li>Izvršite: <code>npm install</code> (samo prvi put)</li>
+                    <li>Izvršite: <code>npm start</code></li>
+                    <li>Otvorite: <a href="http://localhost:3000/CHUTES.html" target="_blank">http://localhost:3000/CHUTES.html</a></li>
+                </ol>
+                </div>`;
+            } else {
+                errorMessage = `<div style="background: rgba(255,50,50,0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,50,50,0.3);">
+                <h3>🚫 API Connection Error</h3>
+                <p>Nije moguće povezati se s Chutes API-jem. Provjerite sljedeće:</p>
+                <ol>
+                    <li>Je li API ključ ispravan</li>
+                    <li>Je li proxy server pokrenut (ako koristite lokalno)</li>
+                    <li>Imate li pristup internetu</li>
+                </ol>
+                </div>`;
+            }
+        }
+        
+        createMessageElement(errorMessage, 'bot');
+        // Spremite grešku u localStorage
+        saveMessage(errorMessage, 'bot');
+    } finally {
+        userInput.disabled = false;
+        document.querySelector('button').disabled = false;
+        userInput.focus(); // Postavi fokus na input polje nakon slanja poruke
+    }
+}
+
+function createMessageElement(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    messageDiv.innerHTML = text; // Koristite innerHTML umjesto textContent za renderiranje HTML-a
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return messageDiv;
+}
+
+function addTypingIndicator(element) {
+    element.classList.add('typing');
+    element.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+}
+
+function removeTypingIndicator(element) {
+    element.classList.remove('typing');
+    element.innerHTML = '';
+}
+
+function simulateTypingEffect(text, element) {
+    let index = 0;
+    element.innerHTML = '';
+    const chatMessages = document.getElementById('chatMessages');
+
+    const typingInterval = setInterval(() => {
+        if (index < text.length) {
+            element.innerHTML = text.substring(0, index + 1);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Ažuriraj scrollTop tijekom animacije
+            index++;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 1);
+}
+
+function saveMessage(text, sender) {
+    const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    chatHistory.push({ text, sender });
+    
+    // Ograniči povijest na zadnjih 30 poruka (15 izmjena)
+    if (chatHistory.length > 30) {
+        chatHistory.splice(0, chatHistory.length - 30);
+    }
+    
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+}
+
+userInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+</script>
+</body>
+</html>
