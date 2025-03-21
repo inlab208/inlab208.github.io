@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCareer Expo 2024 | Dan Karijera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .        .nav-links a {
+            text-decoration: none;
+            color: #1a237e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0d47a1;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1454165804606-c3dea57d322b') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown {
+            background-color: #1a237e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .timer-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 100px;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #1a237e;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        .scroll-container {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .scrolling-list {
+            position: absolute;
+            width: 100%;
+            animation: scroll 20s linear infinite;
+        }
+
+        .scrolling-list:hover {
+            animation-play-state: NON;
+        }
+
+        .list-item {
+            padding: 1.5rem;
+            margin: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            font-size: 1.1rem;
+            color: #1a237e;
+        }
+
+        .list-item:hover {
+            transform: translateX(10px);
+            background: #f8f9fa;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+
+            .scroll-container {
+                height: 300px;
+            }
+            
+            .list-item {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Dan karijera</h1>
+        <h2>l. tehnička škola Tesla, 25. Studenog </h2>
+		 <h3>Klaićeva 7, Zagreb, Hrvatska</h3>
+    </header>
+
+   <div class="countdown">
+        <h2>Događaj počinje za:</h2>
+        <div class="countdown-timer" id="countdown"></div>
+    </div>
+    
+    <section id="about" class="section">
+        <h2>O nama</h2>
+        <p>l. tehnička škola Tesla otvara svoja vrata bla bla bla  posvećen karijerama u području tehnologije i inženjerstva. Okupit ćemo:</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>💼 Poslodavci</h3>
+                <p>Vodeće IT kompanije i tehnološki startupi</p>
+            </div>
+            <div class="card">
+                <h3>🎓 Fakulteti</h3>
+                <p>Tehnička sveučilišta i edukacskiski programi</p>
+            </div>
+            
+        </div>
+    </section>
+
+     <section id="universities" class="section">
+        <h2>Sudionivi: Fakulteti i Tehnološke Tvrtke</h2>
+        <div class="scroll-container">
+            <div class="scrolling-list">
+                <div class="list-item">Fakultet elektrotehnike i računarstva (FER)</div>
+                <div class="list-item">Tehnički fakultet Rijeka</div>
+                <div class="list-item">Fakultet strojarstva i brodogradnje Zagreb</div>
+                <div class="list-item">TVZ - Tehničko veleučilište Zagreb</div>
+                <div class="list-item">Rimac Technology</div>
+                <div class="list-item">Infobip</div>
+                <div class="list-item">Ericsson Nikola Tesla</div>
+                <div class="list-item">Fakultet kemijskog inženjerstva</div>
+                <div class="list-item">PMF - Prirodoslovno-matematički fakultet</div>
+                <div class="list-item">Hrvatski telekom</div>
+                
+                 <div class="list-item">Fakultet elektrotehnike i računarstva (FER)</div>
+                <div class="list-item">Tehnički fakultet Rijeka</div>
+                <div class="list-item">Fakultet strojarstva i brodogradnje Zagreb</div>
+                <div class="list-item">TVZ - Tehničko veleučilište Zagreb</div>
+                <div class="list-item">Rimac Technology</div>
+                <div class="list-item">Infobip</div>
+                <div class="list-item">Ericsson Nikola Tesla</div>
+                <div class="list-item">Fakultet kemijskog inženjerstva</div>
+                <div class="list-item">PMF - Prirodoslovno-matematički fakultet</div>
+                <div class="list-item">Hrvatski telekom</div>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    
+
+   
+    <section id="register" class="section">
+        <div class="registration-form">
+            <h2>Registriraj se sada</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label>Ime i prezime:</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Interesi:</label>
+                    <select>
+                        <option>Zapošljavanje</option>
+                        <option>Fakultet</option>
+                        <option>Oboje</option>
+                    </select>
+                </div>
+                <button type="submit">Pošalji prijavu</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="downdown" style="background-color: #0d47a1;">
+        <h3>.</h3>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook floating-icon"></i></a>
+            <a href="#"><i class="fab fa-linkedin floating-icon"></i></a>
+            <a href="#"><i class="fab fa-instagram floating-icon"></i></a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Forma
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Hvala na prijavi! Kontaktirat ćemo vas u najkraćem roku.');
+            this.reset();
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-11-25').getTime();
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <div class="timer-item">${days}<br>Dana</div>
+                <div class="timer-item">${hours}<br>Sati</div>
+                <div class="timer-item">${minutes}<br>Minuta</div>
+                <div class="timer-item">${seconds}<br>Sekundi</div>
+            `;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // Scroll animacije
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
