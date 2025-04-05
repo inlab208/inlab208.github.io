@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dan Karijera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: white;
+            padding: 3rem;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .logo {
+            max-height: 120px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .header-content {
+            margin: 0 auto;
+            max-width: 600px; /* Prilagodite prema potrebi */
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a237e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0d47a1;
+        }
+
+        .section {
+            padding: 0.5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1454165804606-c3dea57d322b') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown {
+            background-color: #1a237e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .timer-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 100px;
+        }
+
+        .scroll-container {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .scrolling-list {
+            position: absolute;
+            width: 100%;
+            animation: scroll 20s linear infinite;
+        }
+
+        .scrolling-list:hover {
+            /* animation-play-state: paused; */
+            /* Zakomentirano kako bi se animacija nastavila i na hover */
+        }
+
+        .list-item {
+            padding: 1.5rem;
+            margin: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            font-size: 1.1rem;
+            color: #1a237e;
+            font-weight: bold; /* BOLDANO */
+        }
+
+        .list-item:hover {
+            transform: translateX(10px);
+            background: #f8f9fa;
+        }
+
+        .footer {
+            display: flex;
+            background-color: #f0f4f8;
+            color: white;
+            overflow: hidden;
+        }
+
+        .footer-image-container {
+            flex: 2;
+            position: relative;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .footer-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .image-gradient {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, #0d2240);
+            z-index: 1;
+        }
+
+        .footer-content {
+            flex: 0.8;
+            padding: 3rem;
+            background-color: #0d2240;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info a {
+            color: #4fc3f7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .loading-item {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding-top: 80px; /* Smanjeno za bolji izgled na mobilnim uređajima */
+                text-align: center;
+            }
+            
+            .logo-container {
+                position: absolute;
+                left: 50%;
+                top: 10px;
+                transform: translateX(-50%);
+            }
+            
+            .logo {
+                max-height: 60px; /* Ograničena visina loga na mobilnim uređajima */
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+
+            .scroll-container {
+                height: 300px;
+            }
+            
+            .list-item {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+
+            .footer-image-container {
+                min-height: 200px;
+            }
+
+            .image-gradient {
+                display: none;
+            }
+
+            .footer-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="https://ss-prva-tehnicka-tesla-zg.skole.hr/" target="_blank">
+                <img src="https://ss-prva-tehnicka-tesla-zg.skole.hr/wp-content/uploads/sites/1559/2025/01/Logo_Tesla_1-480x333.jpg" alt="I. tehnička škola Tesla logo" class="logo">
+            </a>
+        </div>
+        <div class="header-content">
+            <h1>DAN KARIJERA</h1>
+            <h2>l. tehnička škola Tesla</h2>
+            <h3>23. travnja 2025. Klaićeva 7, Zagreb, Hrvatska</h3>
+        </div>
+    </header>
+
+   <div class="countdown">
+        <h2>Događaj počinje za</h2>
+        <div class="countdown-timer" id="countdown"></div>
+    </div>
+    
+    <section id="about" class="section">
+        <h2>O nama</h2>
+        <p>l. tehnička škola Tesla otvara svoja vrata bla bla bla  posvećen karijerama u području tehnologije i inženjerstva. Okupit ćemo:</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>💼 Poslodavci</h3>
+                <p>Vodeći poslodavci i tehnološke kompanije</p>
+            </div>
+            <div class="card">
+                <h3>🎓 Fakulteti</h3>
+                <p>Tehnička sveučilišta i veleučilišta</p>
+            </div>
+            
+        </div>
+    </section>
+
+     <section id="universities" class="section">
+        <h2>Sudionici</h2>
+        <div class="scroll-container">
+            <div class="scrolling-list" id="participantsList">
+                <div class="loading-item">Učitavanje popisa sudionika...</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-image-container">
+            <img src="https://ss-prva-tehnicka-tesla-zg.skole.hr/wp-content/uploads/sites/1559/2025/01/Slika-skole_Tesla-scaled-1.jpg" alt="I. tehnička škola Tesla zgrada" class="footer-image">
+            <div class="image-gradient"></div>
+        </div>
+        <div class="footer-content">
+            <h2 class="contact-title">Prijave</h2>
+            <div class="contact-info">
+                I. tehnička škola Tesla<br>
+                Klaićeva 7, Zagreb<br>
+                Tel: 01/3771-880<br>
+                E-mail: <a href="mailto:ravnatelj@tesla.hr">ravnatelj@tesla.hr</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Tesla.hr" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/prva_tehnicka_skola_tesla" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                © 2025 I. tehnička škola Tesla
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-04-23T00:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            // Ako je datum događaja prošao ili je upravo sada, prikaži nule
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = `
+                    <div class="timer-item">0<br>Dana</div>
+                    <div class="timer-item">0<br>Sati</div>
+                    <div class="timer-item">0<br>Minuta</div>
+                    <div class="timer-item">0<br>Sekundi</div>
+                `;
+                return; // Izađi iz funkcije
+            }
+
+            // Inače, izračunaj preostalo vrijeme
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <div class="timer-item">${days}<br>Dana</div>
+                <div class="timer-item">${hours}<br>Sati</div>
+                <div class="timer-item">${minutes}<br>Minuta</div>
+                <div class="timer-item">${seconds}<br>Sekundi</div>
+            `;
+        }
+
+        // Pozovi odmah za inicijalni prikaz
+        updateCountdown();
+        
+        // Zatim postavi interval za ažuriranje svake sekunde
+        setInterval(updateCountdown, 1000);
+
+        // Scroll animacije
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Učitavanje popisa sudionika iz Google Sheet-a
+        function loadParticipants() {
+            const sheetId = '1EGMR1uzmzo9VKMkDRmDgjeA3FiF8AiNUqc69UjXwel4';
+            const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+            
+            fetch(sheetUrl)
+                .then(response => response.text())
+                .then(csvData => {
+                    // Parsiranje CSV podataka (pretpostavljamo da je svaki sudionik u jednom redu)
+                    const participants = csvData
+                        .split('\n')
+                        .map(row => row.replace(/^"|"$/g, '')) // Ukloni navodnike
+                        .filter(participant => participant.trim() !== ''); // Ukloni prazne redove
+                    
+                    const participantsList = document.getElementById('participantsList');
+                    participantsList.innerHTML = '';
+                    
+                    // Dodaj sve sudionike u listu
+                    participants.forEach(participant => {
+                        const div = document.createElement('div');
+                        div.className = 'list-item';
+                        div.textContent = participant;
+                        participantsList.appendChild(div);
+                    });
+                    
+                    // Dupliciraj sve stavke za glatki prijelaz
+                    participants.forEach(participant => {
+                        const div = document.createElement('div');
+                        div.className = 'list-item';
+                        div.textContent = participant;
+                        participantsList.appendChild(div);
+                    });
+                })
+                .catch(error => {
+                    console.error('Greška pri učitavanju podataka:', error);
+                    document.getElementById('participantsList').innerHTML = `
+                        <div class="list-item">Greška pri učitavanju popisa sudionika</div>
+                    `;
+                });
+        }
+        
+        // Učitaj podatke samo pri učitavanju stranice
+        document.addEventListener('DOMContentLoaded', loadParticipants);
+    </script>
+</body>
+</html>
