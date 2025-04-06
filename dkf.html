@@ -194,12 +194,12 @@
         .scrolling-list {
             position: absolute;
             width: 100%;
-            animation: scroll 20s linear infinite;
+            animation: scroll 40s linear infinite;
             will-change: transform;
         }
 
         .scrolling-list:hover {
-            /* animation-play-state: paused; */
+            animation-play-state: paused; 
             /* Zakomentirano kako bi se animacija nastavila i na hover */
         }
 
@@ -486,113 +486,153 @@
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
+    });
+});
 
-        // Countdown timer
-        function updateCountdown() {
-            const eventDate = new Date('2025-04-23T00:00:00').getTime();
-            const now = new Date().getTime();
-            const diff = eventDate - now;
+// Countdown timer
+function updateCountdown() {
+    const eventDate = new Date('2025-04-23T00:00:00').getTime();
+    const now = new Date().getTime();
+    const diff = eventDate - now;
 
-            // Ako je datum događaja prošao ili je upravo sada, prikaži nule
-            if (diff <= 0) {
-                document.getElementById('countdown').innerHTML = `
-                    <div class="timer-item">0<br>Dana</div>
-                    <div class="timer-item">0<br>Sati</div>
-                    <div class="timer-item">0<br>Minuta</div>
-                    <div class="timer-item">0<br>Sekundi</div>
-                `;
-                return; // Izađi iz funkcije
+    // Ako je datum događaja prošao ili je upravo sada, prikaži nule
+    if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = `
+            <div class="timer-item">0<br>Dana</div>
+            <div class="timer-item">0<br>Sati</div>
+            <div class="timer-item">0<br>Minuta</div>
+            <div class="timer-item">0<br>Sekundi</div>
+        `;
+        return; // Izađi iz funkcije
+    }
+
+    // Inače, izračunaj preostalo vrijeme
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown').innerHTML = `
+        <div class="timer-item">${days}<br>Dana</div>
+        <div class="timer-item">${hours}<br>Sati</div>
+        <div class="timer-item">${minutes}<br>Minuta</div>
+        <div class="timer-item">${seconds}<br>Sekundi</div>
+    `;
+}
+
+// Pozovi odmah za inicijalni prikaz
+updateCountdown();
+
+// Zatim postavi interval za ažuriranje svake sekunde
+setInterval(updateCountdown, 1000);
+
+// Scroll animacije
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card').forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease-out';
+    observer.observe(card);
+});
+
+// Učitavanje popisa sudionika iz Google Sheet-a
+function loadParticipants() {
+    const sheetId = '1EGMR1uzmzo9VKMkDRmDgjeA3FiF8AiNUqc69UjXwel4';
+    const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+
+    fetch(sheetUrl)
+        .then(response => response.text())
+        .then(csvData => {
+            // Parsiranje CSV podataka (svaki red ima naziv i URL)
+            const rows = csvData.split('\n');
+            const participants = [];
+
+            // Obradi svaki red
+            for (let i = 0; i < rows.length; i++) {
+                // Razdvoji stupce, uzimajući u obzir navodnike
+                const columns = rows[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+                
+                if (columns && columns.length >= 1) {
+                    const name = columns[0].replace(/^"|"$/g, '').trim();
+                    // Provjeri postoji li URL u drugom stupcu
+                    const url = columns.length >= 2 ? columns[1].replace(/^"|"$/g, '').trim() : '';
+                    
+                    if (name) {
+                        participants.push({ name, url });
+                    }
+                }
             }
 
-            // Inače, izračunaj preostalo vrijeme
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            const participantsList = document.getElementById('participantsList');
+            participantsList.innerHTML = '';
 
-            document.getElementById('countdown').innerHTML = `
-                <div class="timer-item">${days}<br>Dana</div>
-                <div class="timer-item">${hours}<br>Sati</div>
-                <div class="timer-item">${minutes}<br>Minuta</div>
-                <div class="timer-item">${seconds}<br>Sekundi</div>
-            `;
-        }
-
-        // Pozovi odmah za inicijalni prikaz
-        updateCountdown();
-
-        // Zatim postavi interval za ažuriranje svake sekunde
-        setInterval(updateCountdown, 1000);
-
-        // Scroll animacije
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+            // Dodaj sve sudionike u listu
+            participants.forEach(participant => {
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                
+                if (participant.url) {
+                    // Ako postoji URL, stvori link
+                    const link = document.createElement('a');
+                    link.href = participant.url;
+                    link.textContent = participant.name;
+                    link.target = "_blank"; // Otvori u novom tabu
+                    link.style.color = "inherit"; // Zadrži boju teksta
+                    link.style.textDecoration = "none"; // Bez podvlačenja
+                    div.appendChild(link);
+                } else {
+                    // Ako nema URL-a, prikaži samo tekst
+                    div.textContent = participant.name;
                 }
+                
+                participantsList.appendChild(div);
             });
-        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
+            // Dupliciraj sve stavke za glatki prijelaz
+            participants.forEach(participant => {
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                
+                if (participant.url) {
+                    const link = document.createElement('a');
+                    link.href = participant.url;
+                    link.textContent = participant.name;
+                    link.target = "_blank";
+                    link.style.color = "inherit";
+                    link.style.textDecoration = "none";
+                    div.appendChild(link);
+                } else {
+                    div.textContent = participant.name;
+                }
+                
+                participantsList.appendChild(div);
+            });
+        })
+        .catch(error => {
+            console.error('Greška pri učitavanju podataka:', error);
+            document.getElementById('participantsList').innerHTML = `
+                <div class="list-item">Greška pri učitavanju popisa sudionika</div>
+            `;
         });
+}
 
-        // Učitavanje popisa sudionika iz Google Sheet-a
-        function loadParticipants() {
-            const sheetId = '1EGMR1uzmzo9VKMkDRmDgjeA3FiF8AiNUqc69UjXwel4';
-            const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
-
-            fetch(sheetUrl)
-                .then(response => response.text())
-                .then(csvData => {
-                    // Parsiranje CSV podataka (pretpostavljamo da je svaki sudionik u jednom redu)
-                    const participants = csvData
-                        .split('\n')
-                        .map(row => row.replace(/^"|"$/g, '')) // Ukloni navodnike
-                        .filter(participant => participant.trim() !== ''); // Ukloni prazne redove
-
-                    const participantsList = document.getElementById('participantsList');
-                    participantsList.innerHTML = '';
-
-                    // Dodaj sve sudionike u listu
-                    participants.forEach(participant => {
-                        const div = document.createElement('div');
-                        div.className = 'list-item';
-                        div.textContent = participant;
-                        participantsList.appendChild(div);
-                    });
-
-                    // Dupliciraj sve stavke za glatki prijelaz
-                    participants.forEach(participant => {
-                        const div = document.createElement('div');
-                        div.className = 'list-item';
-                        div.textContent = participant;
-                        participantsList.appendChild(div);
-                    });
-                })
-                .catch(error => {
-                    console.error('Greška pri učitavanju podataka:', error);
-                    document.getElementById('participantsList').innerHTML = `
-                        <div class="list-item">Greška pri učitavanju popisa sudionika</div>
-                    `;
-                });
-        }
-
-        // Učitaj podatke samo pri učitavanju stranice
-        document.addEventListener('DOMContentLoaded', loadParticipants);
+// Učitaj podatke samo pri učitavanju stranice
+document.addEventListener('DOMContentLoaded', loadParticipants);
     </script>
 </body>
 </html>
