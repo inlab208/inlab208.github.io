@@ -6,7 +6,7 @@
     <title> Dan Karijera</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-       * {
+     * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,13 +17,68 @@ body {
     background-color: #f0f4f8;
 }
 
+/* Animacije za učitavanje stranice */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Primjena animacija */
 .header {
+    animation: fadeIn 0.8s ease-out;
     background: linear-gradient(135deg, #1a237e, #0d47a1);
     color: white;
     padding: 3rem;
     position: relative;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    animation: slideInFromLeft 0.5s ease-out;
+}
+
+.section p {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.countdown {
+    animation: fadeIn 1s ease-out;
+}
+
+.card {
+    animation: slideInFromBottom 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.4s;
 }
 
 .logo-container {
@@ -286,6 +341,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Smanjeni fontovi za naslove na mobilnim uređajima */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    
     .header {
         padding: 2rem 1rem;
         display: flex;
@@ -333,7 +393,7 @@ body {
     }
     
     .scrolling-list {
-        animation: scroll 30s linear infinite;
+        animation: scroll 40s linear infinite; /* Usporena animacija za mobilne uređaje */
         transform: translateZ(0);
     }
     
@@ -361,6 +421,11 @@ body {
     
     .card-container {
         grid-template-columns: 1fr;
+    }
+    
+    /* Prilagodbe animacija za mobilne uređaje */
+    .card {
+        animation-duration: 0.5s;
     }
 }
     </style>
