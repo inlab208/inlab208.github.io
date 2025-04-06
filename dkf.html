@@ -6,408 +6,408 @@
     <title> Dan Karijera</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-body {
-    background-color: #f0f4f8;
-}
+        body {
+            background-color: #f0f4f8;
+        }
 
-/* Animacija za odskočni efekt naslova koji 3 puta odskoči */
-@keyframes tripleBounce {
-    0% { transform: translateY(0); }
-    20% { transform: translateY(-15px); }
-    30% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    50% { transform: translateY(0); }
-    60% { transform: translateY(-5px); }
-    70% { transform: translateY(0); }
-    100% { transform: translateY(0); }
-}
+        /* Animacija za odskočni efekt naslova koji 3 puta odskoči */
+        @keyframes tripleBounce {
+            0% { transform: translateY(0); }
+            20% { transform: translateY(-15px); }
+            30% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            60% { transform: translateY(-5px); }
+            70% { transform: translateY(0); }
+            100% { transform: translateY(0); }
+        }
 
-.header h1, .section h2 {
-    animation: tripleBounce 2s ease-out;
-}
+        .header h1, .section h2 {
+            animation: tripleBounce 2s ease-out;
+        }
 
-.header {
-    background: linear-gradient(135deg, #1a237e, #0d47a1);
-    color: white;
-    padding: 3rem;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+        .header {
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: white;
+            padding: 3rem;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-.logo-container {
-    position: absolute;
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
+        .logo-container {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-.logo {
-    max-height: 120px;
-    border-radius: 3px;
-    cursor: pointer;
-}
+        .logo {
+            max-height: 120px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
 
-.header-content {
-    margin: 0 auto;
-    max-width: 600px; /* Prilagodite prema potrebi */
-}
+        .header-content {
+            margin: 0 auto;
+            max-width: 600px; /* Prilagodite prema potrebi */
+        }
 
-.nav {
-    background-color: #ffffff;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    list-style: none;
-}
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: #1a237e;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: #1a237e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-.nav-links a:hover {
-    color: #0d47a1;
-}
+        .nav-links a:hover {
+            color: #0d47a1;
+        }
 
-.section {
-    padding: 0.5rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .section {
+            padding: 0.5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.hero {
-    text-align: center;
-    background: url('https://images.unsplash.com/photo-1454165804606-c3dea57d322b') center/cover;
-    color: white;
-    padding: 6rem 2rem;
-    position: relative;
-}
+        .hero {
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1454165804606-c3dea57d322b') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+        }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-}
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-/* Veća dubina za kartice */
-.card {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.07);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    position: relative;
-    z-index: 1;
-}
+        /* Veća dubina za kartice */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.07);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            position: relative;
+            z-index: 1;
+        }
 
-.card:hover {
-    transform: translateY(-8px) translateZ(0);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.1);
-}
+        .card:hover {
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.1);
+        }
 
-.card:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.1);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+        .card:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-.card:hover:after {
-    opacity: 1;
-}
+        .card:hover:after {
+            opacity: 1;
+        }
 
-.countdown {
-    background-color: #1a237e;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    margin: 2rem 0;
-    border-radius: 10px;
-}
+        .countdown {
+            background-color: #1a237e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
 
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-}
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
 
-.timer-item {
-    background: rgba(255,255,255,0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    min-width: 100px;
-}
+        .timer-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 100px;
+        }
 
-.scroll-container {
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    margin-top: 2rem;
-}
+        .scroll-container {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
 
-.scrolling-list {
-    position: absolute;
-    width: 100%;
-    animation: scroll 20s linear infinite;
-    will-change: transform;
-}
+        .scrolling-list {
+            position: absolute;
+            width: 100%;
+            animation: scroll 20s linear infinite;
+            will-change: transform;
+        }
 
-.scrolling-list:hover {
-    /* animation-play-state: paused; */
-    /* Zakomentirano kako bi se animacija nastavila i na hover */
-}
+        .scrolling-list:hover {
+            /* animation-play-state: paused; */
+            /* Zakomentirano kako bi se animacija nastavila i na hover */
+        }
 
-.list-item {
-    padding: 1.5rem;
-    margin: 0.5rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-    font-size: 1.1rem;
-    color: #1a237e;
-    font-weight: bold; /* BOLDANO */
-}
+        .list-item {
+            padding: 1.5rem;
+            margin: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            font-size: 1.1rem;
+            color: #1a237e;
+            font-weight: bold; /* BOLDANO */
+        }
 
-.list-item:hover {
-    transform: translateX(10px);
-    background: #f8f9fa;
-}
+        .list-item:hover {
+            transform: translateX(10px);
+            background: #f8f9fa;
+        }
 
-.footer {
-    display: flex;
-    background-color: #f0f4f8;
-    color: white;
-    overflow: hidden;
-}
+        .footer {
+            display: flex;
+            background-color: #f0f4f8;
+            color: white;
+            overflow: hidden;
+        }
 
-.footer-image-container {
-    flex: 2;
-    position: relative;
-    min-height: 300px;
-    overflow: hidden;
-}
+        .footer-image-container {
+            flex: 2;
+            position: relative;
+            min-height: 300px;
+            overflow: hidden;
+        }
 
-.footer-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
+        .footer-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
-.image-gradient {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(to right, transparent, #0d2240);
-    z-index: 1;
-}
+        .image-gradient {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, #0d2240);
+            z-index: 1;
+        }
 
-.footer-content {
-    flex: 0.8;
-    padding: 3rem;
-    background-color: #0d2240;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .footer-content {
+            flex: 0.8;
+            padding: 3rem;
+            background-color: #0d2240;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.contact-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
 
-.contact-info {
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
+        .contact-info {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
 
-.contact-info a {
-    color: #4fc3f7;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .contact-info a {
+            color: #4fc3f7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-.contact-info a:hover {
-    color: white;
-}
+        .contact-info a:hover {
+            color: white;
+        }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
 
-.social-links a {
-    color: white;
-    font-size: 1.5rem;
-    transition: transform 0.3s;
-}
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
 
-.social-links a:hover {
-    transform: translateY(-3px);
-}
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
 
-.copyright {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
 
-@keyframes scroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
 
-.floating-icon {
-    animation: float 3s ease-in-out infinite;
-}
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
 
-.loading-item {
-    text-align: center;
-    padding: 2rem;
-    color: white;
-}
+        .loading-item {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
 
-@media (max-width: 768px) {
-    /* Smanjeni fontovi za naslove na mobilnim uređajima */
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.2rem; }
-    
-    .header {
-        padding: 2rem 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .logo-container {
-        position: static;
-        transform: none;
-        margin-bottom: 1.5rem;
-        margin-right: 0;
-    }
-    
-    .logo {
-        max-height: 80px;
-    }
-    
-    .header-content {
-        text-align: center;
-        padding-top: 0;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
+        @media (max-width: 768px) {
+            /* Smanjeni fontovi za naslove na mobilnim uređajima */
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
 
-    .countdown-timer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        justify-content: center;
-    }
-    
-    .timer-item {
-        min-width: auto;
-        font-size: 1.2rem;
-    }
+            .header {
+                padding: 2rem 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
 
-    .scroll-container {
-        height: 350px;
-    }
-    
-    .scrolling-list {
-        animation: scroll 40s linear infinite; /* Usporena animacija za mobilne uređaje */
-        transform: translateZ(0);
-    }
-    
-    .list-item {
-        font-size: 1rem;
-        padding: 1rem;
-        margin: 0.5rem;
-    }
+            .logo-container {
+                position: static;
+                transform: none;
+                margin-bottom: 1.5rem;
+                margin-right: 0;
+            }
 
-    .footer {
-        flex-direction: column;
-    }
+            .logo {
+                max-height: 80px;
+            }
 
-    .footer-image-container {
-        min-height: 200px;
-    }
+            .header-content {
+                text-align: center;
+                padding-top: 0;
+            }
 
-    .image-gradient {
-        display: none;
-    }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
 
-    .footer-content {
-        padding: 2rem;
-    }
-    
-    .card-container {
-        grid-template-columns: 1fr;
-    }
-}
+            .countdown-timer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .timer-item {
+                min-width: auto;
+                font-size: 1.2rem;
+            }
+
+            .scroll-container {
+                height: 350px;
+            }
+
+            .scrolling-list {
+                animation: scroll 40s linear infinite; /* Usporena animacija za mobilne uređaje */
+                transform: translateZ(0);
+            }
+
+            .list-item {
+                font-size: 1rem;
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+
+            .footer-image-container {
+                min-height: 200px;
+            }
+
+            .image-gradient {
+                display: none;
+            }
+
+            .footer-content {
+                padding: 2rem;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -424,28 +424,36 @@ body {
         </div>
     </header>
 
-   <div class="countdown">
+    <div class="countdown">
         <h2>Događaj počinje za</h2>
         <div class="countdown-timer" id="countdown"></div>
     </div>
-    
+
     <section id="about" class="section">
         <h2>O nama</h2>
-        <p>l. tehnička škola Tesla otvara svoja vrata bla bla bla  posvećen karijerama u području tehnologije i inženjerstva. Okupit ćemo:</p>
+        <p>
+            <b>I. tehnička škola Tesla</b> je vodeća srednja škola u Hrvatskoj koja obrazuje učenike u područjima elektrotehnike i strojarstva. Naša je misija pružiti učenicima kvalitetno obrazovanje koje će ih pripremiti za buduće izazove i uspješne karijere.
+        </p>
+        <p>
+            <b>Dan karijera</b> je događaj koji organiziramo s ciljem povezivanja naših učenika s vodećim poslodavcima i fakultetima. Želimo im pružiti priliku da se upoznaju s mogućnostima koje ih čekaju nakon završetka školovanja te uspostave kontakte s potencijalnim poslodavcima i mentorima.
+        </p>
+        <p>
+           <b> Na Danu karijera okupit ćemo:</b>
+        </p>
         <div class="card-container">
             <div class="card">
                 <h3>💼 Poslodavci</h3>
-                <p>Vodeći poslodavci i tehnološke kompanije</p>
+                <p>Vodeće poslodavce i tehnološke tvrtke</p>
             </div>
             <div class="card">
                 <h3>🎓 Fakulteti</h3>
                 <p>Tehnička sveučilišta i veleučilišta</p>
             </div>
-            
+
         </div>
     </section>
 
-     <section id="universities" class="section">
+    <section id="universities" class="section">
         <h2>Sudionici</h2>
         <div class="scroll-container">
             <div class="scrolling-list" id="participantsList">
@@ -521,7 +529,7 @@ body {
 
         // Pozovi odmah za inicijalni prikaz
         updateCountdown();
-        
+
         // Zatim postavi interval za ažuriranje svake sekunde
         setInterval(updateCountdown, 1000);
 
@@ -546,7 +554,7 @@ body {
         function loadParticipants() {
             const sheetId = '1EGMR1uzmzo9VKMkDRmDgjeA3FiF8AiNUqc69UjXwel4';
             const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
-            
+
             fetch(sheetUrl)
                 .then(response => response.text())
                 .then(csvData => {
@@ -555,10 +563,10 @@ body {
                         .split('\n')
                         .map(row => row.replace(/^"|"$/g, '')) // Ukloni navodnike
                         .filter(participant => participant.trim() !== ''); // Ukloni prazne redove
-                    
+
                     const participantsList = document.getElementById('participantsList');
                     participantsList.innerHTML = '';
-                    
+
                     // Dodaj sve sudionike u listu
                     participants.forEach(participant => {
                         const div = document.createElement('div');
@@ -566,7 +574,7 @@ body {
                         div.textContent = participant;
                         participantsList.appendChild(div);
                     });
-                    
+
                     // Dupliciraj sve stavke za glatki prijelaz
                     participants.forEach(participant => {
                         const div = document.createElement('div');
@@ -582,7 +590,7 @@ body {
                     `;
                 });
         }
-        
+
         // Učitaj podatke samo pri učitavanju stranice
         document.addEventListener('DOMContentLoaded', loadParticipants);
     </script>
