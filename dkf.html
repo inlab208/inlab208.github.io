@@ -60,59 +60,10 @@
             max-width: 600px; /* Prilagodite prema potrebi */
         }
 
-        .nav {
-            background-color: #ffffff;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1a237e;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #0d47a1;
-        }
-
         .section {
             padding: 0.5rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .hero {
-            text-align: center;
-            background: url('https://images.unsplash.com/photo-1454165804606-c3dea57d322b') center/cover;
-            color: white;
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .card-container {
@@ -199,8 +150,6 @@
         }
 
         .scrolling-list:hover {
-          /*  animation-play-state: paused; */
-            /* Zakomentirano kako bi se animacija nastavila i na hover */
         }
 
         .list-item {
@@ -355,12 +304,6 @@
                 padding-top: 0;
             }
 
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
             .countdown-timer {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -462,13 +405,13 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <div class="footer-image-container">
             <img src="https://ss-prva-tehnicka-tesla-zg.skole.hr/wp-content/uploads/sites/1559/2025/01/Slika-skole_Tesla-scaled-1.jpg" alt="I. tehnička škola Tesla zgrada" class="footer-image">
             <div class="image-gradient"></div>
         </div>
         <div class="footer-content">
-            <h2 class="contact-title">Prijava za sudjelovanje</h2>
+            <h2 class="contact-title">Prijave za sudjelovanje</h2>
             <div class="contact-info">
                 I. tehnička škola Tesla<br>
                 Klaićeva 7, Zagreb<br>
@@ -486,16 +429,6 @@
     </footer>
 
     <script>
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
 // Countdown timer
 function updateCountdown() {
     const eventDate = new Date('2025-04-23T00:00:00').getTime();
