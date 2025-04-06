@@ -6,7 +6,7 @@
     <title> Dan Karijera</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-     * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,68 +17,29 @@ body {
     background-color: #f0f4f8;
 }
 
-/* Animacije za učitavanje stranice */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Animacija za odskočni efekt naslova koji 3 puta odskoči */
+@keyframes tripleBounce {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-15px); }
+    30% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    50% { transform: translateY(0); }
+    60% { transform: translateY(-5px); }
+    70% { transform: translateY(0); }
+    100% { transform: translateY(0); }
 }
 
-@keyframes slideInFromLeft {
-    from { 
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateX(0);
-    }
+.header h1, .section h2 {
+    animation: tripleBounce 2s ease-out;
 }
 
-@keyframes slideInFromBottom {
-    from { 
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Primjena animacija */
 .header {
-    animation: fadeIn 0.8s ease-out;
     background: linear-gradient(135deg, #1a237e, #0d47a1);
     color: white;
     padding: 3rem;
     position: relative;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.section h2 {
-    animation: slideInFromLeft 0.5s ease-out;
-}
-
-.section p {
-    animation: fadeIn 0.8s ease-out;
-}
-
-.countdown {
-    animation: fadeIn 1s ease-out;
-}
-
-.card {
-    animation: slideInFromBottom 0.6s ease-out;
-    animation-fill-mode: both;
-}
-
-.card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.card:nth-child(3) {
-    animation-delay: 0.4s;
 }
 
 .logo-container {
@@ -161,16 +122,40 @@ body {
     margin-top: 2rem;
 }
 
+/* Veća dubina za kartice */
 .card {
     background: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.07);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) translateZ(0);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18), 0 3px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover:after {
+    opacity: 1;
 }
 
 .countdown {
@@ -421,11 +406,6 @@ body {
     
     .card-container {
         grid-template-columns: 1fr;
-    }
-    
-    /* Prilagodbe animacija za mobilne uređaje */
-    .card {
-        animation-duration: 0.5s;
     }
 }
     </style>
