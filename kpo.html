@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator prosjeka ocjena</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input {
+            font-size: 18px;
+            padding: 10px;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        #ocjene {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        #prosjek {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        #upute {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator prosjeka ocjena</h1>
+    <input type="number" id="ocjenaInput" min="1" max="5" placeholder="Ocjena">
+    <div id="ocjene">Unesene ocjene: </div>
+    <div id="prosjek">Prosjek: 0</div>
+    <div id="upute">UPUTE: Upiši ocjenu i stisni enter. <br> Za brisanje zadnje ocjene stisni backspace. <br> @tesla208 2025. </div>
+
+    <script>
+        let ocjene = [];
+        const input = document.getElementById('ocjenaInput');
+        const ocjeneDiv = document.getElementById('ocjene');
+        const prosjekDiv = document.getElementById('prosjek');
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const ocjena = parseInt(input.value);
+                if (ocjena >= 1 && ocjena <= 5) {
+                    ocjene.push(ocjena);
+                    azurirajPrikaz();
+                    input.value = '';
+                }
+            } else if (e.key === 'Backspace' && input.value === '') {
+                e.preventDefault();
+                ocjene.pop();
+                azurirajPrikaz();
+            }
+        });
+
+        function azurirajPrikaz() {
+            ocjeneDiv.textContent = 'Unesene ocjene: ' + ocjene.join(', ');
+            const prosjek = ocjene.length > 0 
+                ? (ocjene.reduce((a, b) => a + b, 0) / ocjene.length).toFixed(2)
+                : '0';
+            prosjekDiv.textContent = 'Prosjek: ' + prosjek;
+        }
+    </script>
+</body>
+</html>
