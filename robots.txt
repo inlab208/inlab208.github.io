@@ -1,0 +1,40 @@
+# Blokiraj AI crawlere koji se koriste za treniranje modela
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Disallow: /
+
+# Google (Gemini, Vertex AI)
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl
+User-agent: CCBot
+Disallow: /
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Disallow: /
+
+# Meta (Facebook) AI
+User-agent: FacebookBot
+Disallow: /
+
+# --- Kineski crawleri (pretraživači i AI) ---
+
+# Baidu (najveća kineska tražilica)
+User-agent: Baiduspider
+Disallow: /
+
+# ByteDance (vlasnik TikToka)
+User-agent: Bytespider
+Disallow: /
+
+# Sogou (druga velika kineska tražilica)
+User-agent: Sogou web spider
+Disallow: /
+
+# --- Dozvole za sve ostale ---
+# Omogući pristup svim ostalim botovima (npr. Google za pretraživanje)
+User-agent: *
+Disallow: /
