@@ -77,9 +77,14 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
         
-        #loginBtn:hover {
+        #loginBtn:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        #loginBtn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
         
         .chat-container {
@@ -318,38 +323,48 @@
         const authScreen = document.getElementById('authScreen');
         const chatContainer = document.getElementById('chatContainer');
         const usernameEl = document.getElementById('username');
+        const loginBtn = document.getElementById('loginBtn');
         
         let isAuthenticated = false;
         let currentUser = null;
 
-        // Inicijaliziraj Puter s app imenom
-        puter.setAppParent(document.body);
-
         // Provjeri autentifikaciju pri učitavanju
-        window.onload = async function() {
+        window.addEventListener('focus', checkAuth);
+        window.onload = checkAuth;
+
+        async function checkAuth() {
             try {
-                // Provjeri ako je korisnik već prijavljen
-                const signedIn = await puter.auth.isSignedIn();
+                // Pokušaj dohvatiti korisnika
+                currentUser = await puter.auth.getUser();
                 
-                if (signedIn) {
-                    currentUser = await puter.auth.getUser();
+                if (currentUser && currentUser.username) {
                     showChat();
                 }
             } catch (error) {
                 console.log('Nije prijavljen:', error);
             }
-        };
+        }
 
         async function login() {
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Otvara se popup...';
+            
             try {
-                // Koristi redirect umjesto popup-a
-                await puter.auth.signIn({
-                    redirectOnSuccess: true
-                });
+                // Pokreni sign in
+                await puter.auth.signIn();
+                
+                // Nakon što se popup zatvori, provjeri status
+                setTimeout(async () => {
+                    await checkAuth();
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Prijavi se s Puter';
+                }, 1000);
                 
             } catch (error) {
                 console.error('Login error:', error);
-                alert('Greška pri prijavi. Molim probaj ponovno.');
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Prijavi se s Puter';
+                alert('Greška pri prijavi: ' + error.message);
             }
         }
 
