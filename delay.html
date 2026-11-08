@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delay ponovnog paljenja bojlera (1°C korak)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f4f4f9; margin: 0; padding: 20px; box-sizing: border-box; }
+        .chart-container { width: 100%; max-width: 900px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; margin-bottom: 5px; }
+        p { text-align: center; color: #666; font-size: 14px; margin-top: 0; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="chart-container">
+    <h2>Ovisnost Delay-a o Polaznoj Temperaturi</h2>
+    <p>Prikaz za svaki stupanj od 20°C do 75°C (pređite mišem za točnu vrijednost)</p>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    // Originalne točke iz tvoje tablice
+    const baseTemp = [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75];
+    const baseDelay = [60, 54, 49, 44, 38, 33, 28, 22, 17, 11, 6, 2];
+
+    // Funkcija za linearnu interpolaciju (računa delay za svaki 1°C)
+    function interpolate(temp) {
+        if (temp <= baseTemp[0]) return baseDelay[0];
+        if (temp >= baseTemp[baseTemp.length - 1]) return baseDelay[baseDelay.length - 1];
+        
+        for (let i = 0; i < baseTemp.length - 1; i++) {
+            if (temp >= baseTemp[i] && temp <= baseTemp[i + 1]) {
+                const t1 = baseTemp[i], t2 = baseTemp[i + 1];
+                const d1 = baseDelay[i], d2 = baseDelay[i + 1];
+                // Linearna jednadžba kroz dvije točke
+                return d1 + ((d2 - d1) / (t2 - t1)) * (temp - t1);
+            }
+        }
+        return 0;
+    }
+
+    // Generiranje nizova za grafikon (od 20 do 75, korak 1)
+    const labels = [];
+    const dataPoints = [];
+    
+    for (let t = 20; t <= 75; t++) {
+        labels.push(t + '°C');
+        dataPoints.push(parseFloat(interpolate(t).toFixed(1))); // Zaokruženo na 1 decimalu
+    }
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Delay (min)',
+                data: dataPoints,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                pointRadius: 2, // Manje točke jer ih je sada više
+                pointHoverRadius: 8,
+                tension: 0, // 0 znači ravne linije između svakog stupnja (točno prati interpolaciju)
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return 'Delay: ' + context.parsed.y + ' min';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Zadana polazna temperatura Tpol (°C)',
+                        font: { size: 14, weight: 'bold' }
+                    },
+                    ticks: {
+                        // Prikaži svaki 5. stupanj na X-osi da ne bude pretrpano
+                        callback: function(val, index) {
+                            return index % 5 === 0 ? this.getLabelForValue(val) : '';
+                        }
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Delay (min)',
+                        font: { size: 14, weight: 'bold' }
+                    },
+                    beginAtZero: true,
+                    max: 70
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
